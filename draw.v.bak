@@ -1,0 +1,9 @@
+module draw();
+
+/*
+This module will generate a random card 
+*/
+
+
+
+endmodule
