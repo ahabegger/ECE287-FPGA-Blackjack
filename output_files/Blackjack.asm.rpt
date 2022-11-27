@@ -1,5 +1,5 @@
 Assembler report for Blackjack
-Sun Nov 27 12:26:27 2022
+Sun Nov 27 12:51:07 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Sun Nov 27 12:26:27 2022 ;
+; Assembler Status      ; Successful - Sun Nov 27 12:51:07 2022 ;
 ; Revision Name         ; Blackjack                             ;
 ; Top-level Entity Name ; Blackjack                             ;
 ; Family                ; Cyclone IV E                          ;
@@ -78,15 +78,15 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Sun Nov 27 12:26:25 2022
+    Info: Processing started: Sun Nov 27 12:51:02 2022
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Blackjack -c Blackjack
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4692 megabytes
-    Info: Processing ended: Sun Nov 27 12:26:27 2022
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Processing ended: Sun Nov 27 12:51:07 2022
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:05
 
 
