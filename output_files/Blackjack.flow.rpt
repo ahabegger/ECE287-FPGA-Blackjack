@@ -1,5 +1,5 @@
 Flow report for Blackjack
-Sat Nov 26 23:44:48 2022
+Sun Nov 27 00:25:16 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -41,18 +41,18 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Successful - Sat Nov 26 23:44:45 2022       ;
+; Flow Status                        ; Successful - Sun Nov 27 00:25:14 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; Blackjack                                   ;
 ; Top-level Entity Name              ; Blackjack                                   ;
 ; Family                             ; Cyclone IV E                                ;
 ; Device                             ; EP4CE115F29C7                               ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 0 / 114,480 ( 0 % )                         ;
-;     Total combinational functions  ; 0 / 114,480 ( 0 % )                         ;
+; Total logic elements               ; 457 / 114,480 ( < 1 % )                     ;
+;     Total combinational functions  ; 457 / 114,480 ( < 1 % )                     ;
 ;     Dedicated logic registers      ; 0 / 114,480 ( 0 % )                         ;
 ; Total registers                    ; 0                                           ;
-; Total pins                         ; 28 / 529 ( 5 % )                            ;
+; Total pins                         ; 46 / 529 ( 9 % )                            ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                       ;
 ; Embedded Multiplier 9-bit elements ; 0 / 532 ( 0 % )                             ;
@@ -65,7 +65,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/26/2022 23:44:25 ;
+; Start date & time ; 11/27/2022 00:24:44 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; Blackjack           ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 13870899229294.166952426523472         ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 13870899229294.166952668420092         ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --          ; --         ;
 ; NOMINAL_CORE_SUPPLY_VOLTAGE         ; 1.2V                                   ; --            ; --          ; --         ;
@@ -92,11 +92,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:08     ; 1.0                     ; 4749 MB             ; 00:00:19                           ;
-; Fitter               ; 00:00:08     ; 1.0                     ; 5807 MB             ; 00:00:13                           ;
-; Assembler            ; 00:00:02     ; 1.0                     ; 4694 MB             ; 00:00:03                           ;
-; Timing Analyzer      ; 00:00:02     ; 1.0                     ; 4870 MB             ; 00:00:01                           ;
-; Total                ; 00:00:20     ; --                      ; --                  ; 00:00:36                           ;
+; Analysis & Synthesis ; 00:00:13     ; 1.0                     ; 4814 MB             ; 00:00:18                           ;
+; Fitter               ; 00:00:12     ; 1.0                     ; 5838 MB             ; 00:00:18                           ;
+; Assembler            ; 00:00:03     ; 1.0                     ; 4692 MB             ; 00:00:03                           ;
+; Timing Analyzer      ; 00:00:01     ; 1.1                     ; 4874 MB             ; 00:00:02                           ;
+; Total                ; 00:00:29     ; --                      ; --                  ; 00:00:41                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
