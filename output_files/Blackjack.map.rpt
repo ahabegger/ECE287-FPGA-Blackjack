@@ -1,0 +1,602 @@
+Analysis & Synthesis report for Blackjack
+Sat Nov 26 23:44:33 2022
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. General Register Statistics
+  9. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Mod0
+ 10. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Mod1
+ 11. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Div0
+ 12. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Mod2
+ 13. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Mod3
+ 14. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Div1
+ 15. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Mod4
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Sat Nov 26 23:44:33 2022       ;
+; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
+; Revision Name                      ; Blackjack                                   ;
+; Top-level Entity Name              ; Blackjack                                   ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
+; Total pins                         ; 28                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; Blackjack          ; Blackjack          ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 12          ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                    ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
+; Blackjack.v                      ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v                ;         ;
+; seven_segment.v                  ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/seven_segment.v            ;         ;
+; seven_segment_negative.v         ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/seven_segment_negative.v   ;         ;
+; three_decimal_vals_w_neg.v       ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_divide.tdf                                           ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/abs_divider.inc                                          ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                      ;         ;
+; aglobal191.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc                                           ;         ;
+; db/lpm_divide_gno.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_gno.tdf      ;         ;
+; db/abs_divider_8ag.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_8ag.tdf     ;         ;
+; db/alt_u_div_e4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_e4f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/add_sub_8pc.tdf         ;         ;
+; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_2v9.tdf         ;         ;
+; db/lpm_abs_6v9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_6v9.tdf         ;         ;
+; db/lpm_divide_p0p.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_p0p.tdf      ;         ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_kbg.tdf     ;         ;
+; db/alt_u_div_67f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_67f.tdf       ;         ;
+; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_i0a.tdf         ;         ;
+; db/lpm_divide_soo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_soo.tdf      ;         ;
+; db/lpm_divide_jno.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_jno.tdf      ;         ;
+; db/abs_divider_bag.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_bag.tdf     ;         ;
+; db/alt_u_div_k4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_k4f.tdf       ;         ;
+; db/lpm_abs_5v9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_5v9.tdf         ;         ;
+; db/lpm_divide_s0p.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_s0p.tdf      ;         ;
+; db/abs_divider_nbg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_nbg.tdf     ;         ;
+; db/alt_u_div_c7f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_c7f.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                           ;
++---------------------------------------------+-------------------------+
+; Resource                                    ; Usage                   ;
++---------------------------------------------+-------------------------+
+;                                             ;                         ;
+; Total combinational functions               ; 0                       ;
+; Logic element usage by number of LUT inputs ;                         ;
+;     -- 4 input functions                    ; 0                       ;
+;     -- 3 input functions                    ; 0                       ;
+;     -- <=2 input functions                  ; 0                       ;
+;                                             ;                         ;
+; Logic elements by mode                      ;                         ;
+;     -- normal mode                          ; 0                       ;
+;     -- arithmetic mode                      ; 0                       ;
+;                                             ;                         ;
+; Total registers                             ; 0                       ;
+;     -- Dedicated logic registers            ; 0                       ;
+;     -- I/O registers                        ; 0                       ;
+;                                             ;                         ;
+; I/O pins                                    ; 28                      ;
+;                                             ;                         ;
+; Embedded Multiplier 9-bit elements          ; 0                       ;
+;                                             ;                         ;
+; Maximum fan-out node                        ; seg7_neg_sign[0]~output ;
+; Maximum fan-out                             ; 1                       ;
+; Total fan-out                               ; 28                      ;
+; Average fan-out                             ; 0.50                    ;
++---------------------------------------------+-------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+; |Blackjack                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 28   ; 0            ; |Blackjack          ; Blackjack   ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Mod0 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Mod1 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Div0 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Mod2 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_soo ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Mod3 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                              ;
+; LPM_WIDTHD             ; 8              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_jno ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Div1 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                              ;
+; LPM_WIDTHD             ; 8              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_s0p ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:bets|lpm_divide:Mod4 ;
++------------------------+----------------+------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                 ;
++------------------------+----------------+------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                              ;
+; CBXI_PARAMETER         ; lpm_divide_soo ; Untyped                                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                       ;
++------------------------+----------------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 28                          ;
+; cycloneiii_lcell_comb ; 2                           ;
+;     normal            ; 2                           ;
+;         0 data inputs ; 2                           ;
+;                       ;                             ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Sat Nov 26 23:44:25 2022
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Blackjack -c Blackjack
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file blackjack.v
+    Info (12023): Found entity 1: Blackjack File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file seven_segment.v
+    Info (12023): Found entity 1: seven_segment File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/seven_segment.v Line: 1
+Warning (12019): Can't analyze file -- file module seven_segment_negative.v is missing
+Info (12021): Found 1 design units, including 1 entities, in source file seven_segment_negative.v
+    Info (12023): Found entity 1: seven_segment_negative File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/seven_segment_negative.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file three_decimal_vals_w_neg.v
+    Info (12023): Found entity 1: three_decimal_vals_w_neg File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 1
+Info (12127): Elaborating entity "Blackjack" for the top level hierarchy
+Info (12128): Elaborating entity "three_decimal_vals_w_neg" for hierarchy "three_decimal_vals_w_neg:bets" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(38): truncated value with size 32 to match size of target (4) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 38
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(39): truncated value with size 32 to match size of target (4) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 39
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(40): truncated value with size 32 to match size of target (4) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 40
+Info (12128): Elaborating entity "seven_segment_negative" for hierarchy "three_decimal_vals_w_neg:bets|seven_segment_negative:NEG" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 45
+Info (12128): Elaborating entity "seven_segment" for hierarchy "three_decimal_vals_w_neg:bets|seven_segment:ZERO" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 46
+Info (278001): Inferred 7 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:bets|Mod0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 34
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:bets|Mod1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:bets|Div0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:bets|Mod2" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:bets|Mod3" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:bets|Div1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:bets|Mod4" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:bets|lpm_divide:Mod0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 34
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:bets|lpm_divide:Mod0" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 34
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_gno.tdf
+    Info (12023): Found entity 1: lpm_divide_gno File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_gno.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_8ag.tdf
+    Info (12023): Found entity 1: abs_divider_8ag File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_8ag.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_e4f.tdf
+    Info (12023): Found entity 1: alt_u_div_e4f File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_e4f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/add_sub_8pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
+    Info (12023): Found entity 1: lpm_abs_2v9 File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_2v9.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_6v9.tdf
+    Info (12023): Found entity 1: lpm_abs_6v9 File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_6v9.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:bets|lpm_divide:Mod1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:bets|lpm_divide:Mod1" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:bets|lpm_divide:Div0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:bets|lpm_divide:Div0" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_p0p.tdf
+    Info (12023): Found entity 1: lpm_divide_p0p File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_p0p.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
+    Info (12023): Found entity 1: abs_divider_kbg File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_kbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_67f.tdf
+    Info (12023): Found entity 1: alt_u_div_67f File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_67f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
+    Info (12023): Found entity 1: lpm_abs_i0a File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_i0a.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:bets|lpm_divide:Mod2" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:bets|lpm_divide:Mod2" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_soo.tdf
+    Info (12023): Found entity 1: lpm_divide_soo File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_soo.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:bets|lpm_divide:Mod3" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:bets|lpm_divide:Mod3" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jno.tdf
+    Info (12023): Found entity 1: lpm_divide_jno File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_jno.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_bag.tdf
+    Info (12023): Found entity 1: abs_divider_bag File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_bag.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_k4f.tdf
+    Info (12023): Found entity 1: alt_u_div_k4f File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_k4f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_5v9.tdf
+    Info (12023): Found entity 1: lpm_abs_5v9 File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_5v9.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:bets|lpm_divide:Div1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:bets|lpm_divide:Div1" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_s0p.tdf
+    Info (12023): Found entity 1: lpm_divide_s0p File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_s0p.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_nbg.tdf
+    Info (12023): Found entity 1: abs_divider_nbg File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_nbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_c7f.tdf
+    Info (12023): Found entity 1: alt_u_div_c7f File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_c7f.tdf Line: 27
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "seg7_neg_sign[0]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 2
+    Warning (13410): Pin "seg7_neg_sign[1]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 2
+    Warning (13410): Pin "seg7_neg_sign[2]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 2
+    Warning (13410): Pin "seg7_neg_sign[3]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 2
+    Warning (13410): Pin "seg7_neg_sign[4]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 2
+    Warning (13410): Pin "seg7_neg_sign[5]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 2
+    Warning (13410): Pin "seg7_neg_sign[6]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 2
+    Warning (13410): Pin "seg7_dig0[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 3
+    Warning (13410): Pin "seg7_dig0[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 3
+    Warning (13410): Pin "seg7_dig0[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 3
+    Warning (13410): Pin "seg7_dig0[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 3
+    Warning (13410): Pin "seg7_dig0[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 3
+    Warning (13410): Pin "seg7_dig0[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 3
+    Warning (13410): Pin "seg7_dig0[6]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 3
+    Warning (13410): Pin "seg7_dig1[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 4
+    Warning (13410): Pin "seg7_dig1[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 4
+    Warning (13410): Pin "seg7_dig1[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 4
+    Warning (13410): Pin "seg7_dig1[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 4
+    Warning (13410): Pin "seg7_dig1[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 4
+    Warning (13410): Pin "seg7_dig1[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 4
+    Warning (13410): Pin "seg7_dig1[6]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 4
+    Warning (13410): Pin "seg7_dig2[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 6
+    Warning (13410): Pin "seg7_dig2[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 6
+    Warning (13410): Pin "seg7_dig2[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 6
+    Warning (13410): Pin "seg7_dig2[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 6
+    Warning (13410): Pin "seg7_dig2[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 6
+    Warning (13410): Pin "seg7_dig2[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 6
+    Warning (13410): Pin "seg7_dig2[6]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 6
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 28 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 0 input pins
+    Info (21059): Implemented 28 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 4755 megabytes
+    Info: Processing ended: Sat Nov 26 23:44:33 2022
+    Info: Elapsed time: 00:00:08
+    Info: Total CPU time (on all processors): 00:00:19
+
+
