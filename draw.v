@@ -1,7 +1,7 @@
 module draw(
 input [7:0]random,
-output [7:0]card_code,
-output [1:0]suit_code
+output reg [7:0]card_code,
+output reg [1:0]suit_code
 );
 
 // Holder Integer
