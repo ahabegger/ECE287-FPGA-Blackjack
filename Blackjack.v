@@ -1,6 +1,7 @@
 module Blackjack(
 	input rst,
 	input clk,
+	input start,
 	input increment_1,
 	input increment_5,
 	input increment_10,
@@ -41,47 +42,53 @@ parameters  INIT =     6'b000000;
 // Handle State Conditions
 always@(*)
 case(S):
-	INIT:
-	START:
-	C_2:
-	C_3:
-	C_4:
-	C_5:
-	BJ_5:
-	BUST:
-	DEAL:
-	DEAL_BJ:
+	     INIT:
+	    START: if (!start)
+					NS = BET;
+			BET: if (start)
+					NS = C_2;
+	      C_2:
+	      C_3:
+	      C_4:
+	      C_5:
+	     BJ_5:
+	     BUST:
+	     DEAL:
+	  DEAL_BJ:
 	DEAL_BUST:
-	DEAL_TIE:
+	 DEAL_TIE:
 	DEAL_HIGH:
-	DEAL_LOW:
-	LOST:
-	TIE:
-	WIN:
-	default: NS = INIT;
+	 DEAL_LOW:
+	     LOST:
+	      TIE:
+	      WIN:
+	  default: NS = INIT;
 endcase
 
 // Reset Condition and Next State Condition
 always@(posedge clk or negedge rst)
-if (rst == 1'b0)
-	S <= INIT;
-else
-	S <= NS;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+begin
+	if (rst == 1'b0)
+		S <= INIT;
+	else
+	begin
+	
+		// Bet Listener
+		if (S == BET)
+		begin
+			if (increment_1)
+				bet = bet + 8'd1;
+			if (increment_5)
+				bet = bet + 8'd5;
+			if (increment_10)
+				bet = bet + 8'd10;
+			if (increment_25)
+				bet = bet + 8'd25;
+		end 
+		
+		S <= NS;
+	end
+end
 
 endmodule
 
