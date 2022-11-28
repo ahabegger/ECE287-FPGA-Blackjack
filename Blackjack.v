@@ -38,15 +38,35 @@ parameters  INIT =     6'b000000;
 				TIE =      6'b010000;
 				WIN =      6'b010001;
 
+// Handle State Conditions
+always@(*)
+case(S):
+	INIT:
+	START:
+	C_2:
+	C_3:
+	C_4:
+	C_5:
+	BJ_5:
+	BUST:
+	DEAL:
+	DEAL_BJ:
+	DEAL_BUST:
+	DEAL_TIE:
+	DEAL_HIGH:
+	DEAL_LOW:
+	LOST:
+	TIE:
+	WIN:
+	default: NS = INIT;
+endcase
 
-
-
-
-
-
-
-
-
+// Reset Condition and Next State Condition
+always@(posedge clk or negedge rst)
+if (rst == 1'b0)
+	S <= INIT;
+else
+	S <= NS;
 
 
 
