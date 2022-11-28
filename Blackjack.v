@@ -2,6 +2,8 @@ module Blackjack(
 	input rst,
 	input clk,
 	input start,
+	input hit,
+	input stand,
 	input increment_1,
 	input increment_5,
 	input increment_10,
@@ -14,10 +16,20 @@ module Blackjack(
 	output [6:0]seg7_dig4
 );
 
+// Define Money Variables
+reg  [7:0]bet;
+wire [7:0]total_money;
+
+// Defining Player Card Value
+reg  [7:0]value;
+wire [7:0]val2;
+wire [7:0]val3;
+wire [7:0]val4;
+wire [7:0]val5;
 
 // Defining State and Next State
-reg [5:0]S;
-reg [5:0]NS;
+reg  [5:0]S;
+reg  [5:0]NS;
 
 // Defining Parameters
 parameters  INIT =     6'b000000;
@@ -42,12 +54,24 @@ parameters  INIT =     6'b000000;
 // Handle State Conditions
 always@(*)
 case(S):
-	     INIT:
+	     INIT: total_money = 8d'200;
 	    START: if (!start)
+				  begin
+					bet = 8d'1;
 					NS = BET;
+				  end
 			BET: if (start)
+				  begin
+					value = val2;
 					NS = C_2;
-	      C_2:
+				  end
+	      C_2: if (hit)
+				  begin 
+					value = val3;
+				   NS = C_3;
+				  end
+				  else if (stand) 
+				   NS = DEAL;
 	      C_3:
 	      C_4:
 	      C_5:
@@ -93,10 +117,6 @@ end
 endmodule
 
 
-/* Instantiate Starter Money */
-/*wire [7:0]total_money = 8'd200;
-reg [7:0]bet = 8'd0;
-*/
 /* Displays Total Money */
 //three_decimal_vals_w_neg TOTAL(total_money, seg7_neg_sign, seg7_dig0, seg7_dig1, seg7_dig2);
 
