@@ -1,6 +1,6 @@
 Assembler report for Blackjack
-Mon Nov 28 15:56:35 2022
-Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
+Wed Nov 30 00:54:44 2022
+Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
 ---------------------
@@ -10,7 +10,7 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/habeggaj/Desktop/Final/ECE287_Blackjack/output_files/Blackjack.sof
+  5. Assembler Device Options: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/output_files/Blackjack.sof
   6. Assembler Messages
 
 
@@ -18,27 +18,27 @@ Quartus Prime Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2016  Intel Corporation. All rights reserved.
+Copyright (C) 2019  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
 to the terms and conditions of the Intel Program License 
 Subscription Agreement, the Intel Quartus Prime License Agreement,
-the Intel MegaCore Function License Agreement, or other 
-applicable license agreement, including, without limitation, 
-that your use is for the sole purpose of programming logic 
-devices manufactured by Intel and sold by Intel or its 
-authorized distributors.  Please refer to the applicable 
-agreement for further details.
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Mon Nov 28 15:56:35 2022 ;
+; Assembler Status      ; Successful - Wed Nov 30 00:54:44 2022 ;
 ; Revision Name         ; Blackjack                             ;
 ; Top-level Entity Name ; Blackjack                             ;
 ; Family                ; Cyclone IV E                          ;
@@ -53,24 +53,23 @@ agreement for further details.
 +--------+---------+---------------+
 
 
-+-----------------------------------------------------------------------------+
-; Assembler Generated Files                                                   ;
-+-----------------------------------------------------------------------------+
-; File Name                                                                   ;
-+-----------------------------------------------------------------------------+
-; C:/Users/habeggaj/Desktop/Final/ECE287_Blackjack/output_files/Blackjack.sof ;
-+-----------------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------------------------------+
+; Assembler Generated Files                                                                                       ;
++-----------------------------------------------------------------------------------------------------------------+
+; File Name                                                                                                       ;
++-----------------------------------------------------------------------------------------------------------------+
+; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/output_files/Blackjack.sof ;
++-----------------------------------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/habeggaj/Desktop/Final/ECE287_Blackjack/output_files/Blackjack.sof ;
-+----------------+--------------------------------------------------------------------------------------+
-; Option         ; Setting                                                                              ;
-+----------------+--------------------------------------------------------------------------------------+
-; Device         ; EP4CE115F29C7                                                                        ;
-; JTAG usercode  ; 0x0059B7D0                                                                           ;
-; Checksum       ; 0x0059B7D0                                                                           ;
-+----------------+--------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/output_files/Blackjack.sof ;
++----------------+--------------------------------------------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                                                                  ;
++----------------+--------------------------------------------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x00564A50                                                                                                               ;
+; Checksum       ; 0x00564A50                                                                                                               ;
++----------------+--------------------------------------------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -78,16 +77,16 @@ agreement for further details.
 +--------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
-    Info: Version 16.1.0 Build 196 10/24/2016 SJ Lite Edition
-    Info: Processing started: Mon Nov 28 15:56:32 2022
+    Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
+    Info: Processing started: Wed Nov 30 00:54:41 2022
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off Blackjack -c Blackjack
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4689 megabytes
-    Info: Processing ended: Mon Nov 28 15:56:35 2022
+    Info: Peak virtual memory: 4693 megabytes
+    Info: Processing ended: Wed Nov 30 00:54:44 2022
     Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 
