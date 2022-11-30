@@ -54,38 +54,57 @@ parameters  INIT =     6'b000000;
 // Handle State Conditions
 always@(*)
 case(S):
-	     INIT: total_money = 8d'200;
+	     INIT: NS = START;
 	    START: if (!start)
-				  begin
-					bet = 8d'1;
 					NS = BET;
-				  end
 			BET: if (start)
-				  begin
-					value = val2;
 					NS = C_2;
-				  end
 	      C_2: if (hit)
-				  begin 
-					value = val3;
 				   NS = C_3;
-				  end
 				  else if (stand) 
 				   NS = DEAL;
-	      C_3:
-	      C_4:
-	      C_5:
-	     BJ_5:
-	     BUST:
-	     DEAL:
-	  DEAL_BJ:
-	DEAL_BUST:
-	 DEAL_TIE:
-	DEAL_HIGH:
-	 DEAL_LOW:
-	     LOST:
-	      TIE:
-	      WIN:
+	      C_3: if (value > 8'd21)
+					NS = BUST;
+				  else if (hit == 1'b1)
+					NS = C_4;
+				  else if (stand == 1'b1)
+					NS = DEAL;
+	      C_4: if (value > 8'd21)
+					NS = BUST;
+				  else if (hit == 1'b1)
+					NS = C_5;
+				  else if (stand == 1'b1)
+					NS = DEAL;
+	      C_5: if (value > 8'd21)
+					NS = BUST;
+				  else
+					NS = DEAL;
+	     BJ_5: 
+	     BUST: NS = LOST;
+	     DEAL: if((dvalue == 8'd21) && (dcardsnum == 8'd2))
+					NS = DEAL_BJ;
+				  else if (dvalue > 21)
+				   NS = DEAL_BUST;
+				  else if (value > dvalue)
+					NS = DEAL_LOW;
+				  else if (value == dvalue)
+					NS = DEAL_TIE;
+				  else 
+					NS = DEAL_HIGH;
+	  DEAL_BJ: if ((val2 == value) && (value == 8'd21))
+					NS = TIE;
+				  else
+					NS = LOST;
+	DEAL_BUST: NS = LOST;
+	 DEAL_TIE: if (val2 == 8'd21)
+					NS = WIN;
+				  else
+				   NS = TIE;
+	DEAL_HIGH: NS = LOST;
+	 DEAL_LOW: NS = WIN;
+	     LOST: NS = START;
+	      TIE: NS = START;
+	      WIN: NS = START;
 	  default: NS = INIT;
 endcase
 
