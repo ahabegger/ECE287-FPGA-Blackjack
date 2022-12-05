@@ -11,7 +11,7 @@ module CONTROL(
 	output LCD_RW,
 	output reg LCD_EN,
 	output LCD_RS
-   //output[21:0] c_out
+        output[21:0] c_out
 );
 
 reg[1:0] v1;
@@ -26,7 +26,7 @@ reg en;
 reg rs;
 reg rw;
 
-//assign c_out=c;
+assign c_out=c;
 assign LCD_RW=rw;
 assign LCD_RS=rs;
 assign LCD_DATA=data;
@@ -340,7 +340,7 @@ begin
             rw=1'b0;
          end   
    endcase
-   //LCD_EN <= 1'b0;
+   LCD_EN <= 1'b0;
 end
 
 endmodule
