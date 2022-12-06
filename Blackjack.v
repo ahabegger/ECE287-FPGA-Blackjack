@@ -48,6 +48,9 @@ wire [7:0]dcard3;
 wire [7:0]dcard4;
 wire [7:0]dcard5;
 
+// Deal Dealer Logic
+
+
 // Defining Output Variables
 reg  win;
 reg  tie;
