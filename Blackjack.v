@@ -27,6 +27,9 @@ wire [7:0]val3;
 wire [7:0]val4;
 wire [7:0]val5;
 
+// Calling Up Player Cards
+
+
 // Defining Dealer Card Value
 wire [7:0]dvalue;
 wire [7:0]dcardsnum;
