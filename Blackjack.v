@@ -16,6 +16,10 @@ module Blackjack(
 	output [6:0]seg7_dig4
 );
 
+
+// Defining Round Deal
+reg deal;
+
 // Defining Money Variables
 reg  [7:0]bet;
 wire [7:0]total_money;
