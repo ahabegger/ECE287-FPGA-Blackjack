@@ -1,14 +1,12 @@
 module	Display (	
-					iCLK,iRST_N,
-					
-					hand, victory, defeat,
-			
-					LCD_DATA,LCD_RW,LCD_EN,LCD_RS	);
+		iCLK,iRST_N,
+		hand, WIN, LOST,	
+		LCD_DATA,LCD_RW,LCD_EN,LCD_RS	);
 
-input			iCLK,iRST_N;
+input iCLK,iRST_N;
 input [4:0] hand;
-input victory;
-input defeat;
+input WIN;
+input LOST;
 output	[7:0]	LCD_DATA;
 output			LCD_RW,LCD_EN,LCD_RS;
 reg	[5:0]	LUT_INDEX;
@@ -98,14 +96,14 @@ begin
 	LCD_LINE1+8:	LUT_DATA <= 9'h088; 
 	LCD_LINE1+9:	begin
 						
-						LUT_DATA[8] <= 1'b1;
-						LUT_DATA[7:0] <= 48+hand/10;
-					end
+				LUT_DATA[8] <= 1'b1;
+				LUT_DATA[7:0] <= 48+hand/10;
+			end
 	LCD_LINE1+10:	begin
 						
-						LUT_DATA[8] <= 1'b1;
-						LUT_DATA[7:0] <= 48+hand%10;
-					end
+				LUT_DATA[8] <= 1'b1;
+				LUT_DATA[7:0] <= 48+hand%10;
+			end
 	LCD_LINE1+11:	LUT_DATA <= 9'h120;
 	LCD_LINE1+12:	LUT_DATA <= 9'h120;
 	LCD_LINE1+13:	LUT_DATA <= 9'h120;
@@ -124,9 +122,9 @@ begin
 			end
 	LCD_LINE2+2:	begin
 				case ({WIN, LOST})
-				2'b10: LUT_DATA	<= 9'h169;
-				2'b01: LUT_DATA	<= 9'h165;
-				default: LUT_DATA <= 9'h120;
+					2'b10: LUT_DATA	<= 9'h169;
+					2'b01: LUT_DATA	<= 9'h165;
+					default: LUT_DATA <= 9'h120;
 				endcase
 			end
 	LCD_LINE2+3:	begin
@@ -176,16 +174,16 @@ begin
 	endcase
 end
 
-LCD_Controller 		u0	(	
-							.iDATA(mLCD_DATA),
-							.iRS(mLCD_RS),
-							.iStart(mLCD_Start),
-							.oDone(mLCD_Done),
-							.iCLK(iCLK),
-							.iRST_N(iRST_N),
-							.LCD_DATA(LCD_DATA),
-							.LCD_RW(LCD_RW),
-							.LCD_EN(LCD_EN),
-							.LCD_RS(LCD_RS)	);
+LCD_Controller 	u0 (	
+		.iDATA(mLCD_DATA),
+		.iRS(mLCD_RS),
+		.iStart(mLCD_Start),
+		.oDone(mLCD_Done),
+		.iCLK(iCLK),
+		.iRST_N(iRST_N),
+		.LCD_DATA(LCD_DATA),
+		.LCD_RW(LCD_RW),
+		.LCD_EN(LCD_EN),
+		.LCD_RS(LCD_RS)	);
 
 endmodule
