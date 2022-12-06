@@ -1,5 +1,5 @@
 Timing Analyzer report for Blackjack
-Tue Dec 06 01:30:18 2022
+Tue Dec 06 15:31:16 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -504,7 +504,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Tue Dec 06 01:30:17 2022
+    Info: Processing started: Tue Dec 06 15:31:14 2022
 Info: Command: quartus_sta Blackjack -c Blackjack
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -553,8 +553,8 @@ Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 5 warnings
     Info: Peak virtual memory: 4870 megabytes
-    Info: Processing ended: Tue Dec 06 01:30:18 2022
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Tue Dec 06 15:31:16 2022
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 
