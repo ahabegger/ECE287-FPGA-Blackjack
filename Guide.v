@@ -1,28 +1,28 @@
 module Guide (	
-						iDATA,iRS,
-						iStart,oDone,
-						iCLK,iRST_N,
-						LCD_DATA,
-						LCD_RW,
-						LCD_EN,
-						LCD_RS	);
+	iDATA,iRS,
+	iStart,oDone,
+	iCLK,iRST_N,
+	LCD_DATA,
+	LCD_RW,
+	LCD_EN,
+	LCD_RS	);
 
-parameter	CLK_Divide	=	16;
+parameter CLK_Divide = 16;
 
 
-input	[7:0]	iDATA;
-input	iRS,iStart;
-input	iCLK,iRST_N;
-output	reg		oDone;
+input [7:0] iDATA;
+input iRS,iStart;
+input iCLK,iRST_N;
+output reg oDone;
 
-output	[7:0]	LCD_DATA;
-output	reg		LCD_EN;
-output			LCD_RW;
-output			LCD_RS;
+output [7:0] LCD_DATA;
+output reg LCD_EN;
+output LCD_RW;
+output LCD_RS;
 
-reg		[4:0]	Cont;
-reg		[1:0]	ST;
-reg		preStart,mStart;
+reg [4:0] Cont;
+reg [1:0] ST;
+reg preStart,mStart;
 
 
 assign	LCD_DATA = iDATA; 
@@ -34,20 +34,20 @@ always@(posedge iCLK or negedge iRST_N)
 begin
 	if(!iRST_N)
 	begin
-		oDone	<=	1'b0;
-		LCD_EN	<=	1'b0;
-		preStart<=	1'b0;
-		mStart	<=	1'b0;
-		Cont	<=	0;
-		ST		<=	0;
+		oDone <= 1'b0;
+		LCD_EN <= 1'b0;
+		preStart <= 1'b0;
+		mStart <= 1'b0;
+		Cont <= 0;
+		ST <= 0;
 	end
 	else
 	begin
-		preStart <=	iStart;
+		preStart <= iStart;
 		if({preStart,iStart}==2'b01)
 		begin
-			mStart	<=	1'b1;
-			oDone	<=	1'b0;
+			mStart <= 1'b1;
+			oDone <= 1'b0;
 		end
 		if(mStart)
 		begin
