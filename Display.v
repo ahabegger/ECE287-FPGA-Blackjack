@@ -1,4 +1,4 @@
-module	LCD_Display (	
+module	Display (	
 					iCLK,iRST_N,
 					
 					hand, victory, defeat,
