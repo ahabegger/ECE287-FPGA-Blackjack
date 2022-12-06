@@ -1,7 +1,9 @@
 module player(
 input clk,
 input rst,
-input deal, 
+input deal,
+input [15:0]random_seed,
+input new_random_seed,
 output [7:0]card1, 
 output [7:0]card2, 
 output [7:0]card3, 
@@ -30,7 +32,7 @@ integer cardval5_holder;
 // Aces holder
 reg [4:0]aces;
 
-random PDEAL(deal, card1, card2, card3, card4, card5);
+random PDEAL(deal, random_seed, new_random_seed, card1, card2, card3, card4, card5);
 
 always@(*)
 begin 

@@ -2,6 +2,8 @@ module Blackjack(
 	input rst,
 	input clk,
 	input start,
+	input [15:0]random_seed,
+	input new_random_seed,
 	input hit,
 	input stand,
 	input increment_1,
@@ -39,7 +41,7 @@ wire [7:0]card4;
 wire [7:0]card5;
 
 // Deal Player Cards
-player PLAYER(clk, rst, deal, card1, card2, card3, card4, card5, val2, val3, val4, val5);
+player PLAYER(clk, rst, deal, random_seed, new_random_seed, card1, card2, card3, card4, card5, val2, val3, val4, val5);
 
 // Defining Dealer Card Value
 wire [7:0]dvalue;
@@ -53,7 +55,7 @@ wire [7:0]dcard4;
 wire [7:0]dcard5;
 
 // Deal Dealer Logic
-dealer DEALER(clk, rst, deal, dcard1, dcard2, dcard3, dcard4, dcard5, dvalue, dcardsnum);
+dealer DEALER(clk, rst, deal, {random_seed[2:0], random_seed[2:0], random_seed[15:6]}, new_random_seed, dcard1, dcard2, dcard3, dcard4, dcard5, dvalue, dcardsnum);
 
 // Defining Output Variables
 reg  win;

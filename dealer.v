@@ -2,6 +2,8 @@ module dealer(
 input clk,
 input rst,
 input deal, 
+input [15:0]random_seed,
+input new_random_seed,
 output [7:0]card1, 
 output [7:0]card2, 
 output [7:0]card3, 
@@ -34,7 +36,7 @@ reg [7:0]val3;
 reg [7:0]val4; 
 reg [7:0]val5;
 
-random DDEAL(deal, card1, card2, card3, card4, card5);
+random DDEAL(deal, random_seed, new_random_seed, card1, card2, card3, card4, card5);
 
 always@(*)
 begin 
