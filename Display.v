@@ -116,54 +116,54 @@ begin
 	//	Line 2
 	LCD_LINE2+0:	LUT_DATA <= 9'h120;
 	LCD_LINE2+1:	begin
-						case ({victory, defeat})
-							2'b10: LUT_DATA	<= 9'h156;
-							2'b01: LUT_DATA	<= 9'h144;
-							default: LUT_DATA <= 9'h120;
-						endcase
-					end
+				case ({WIN, LOST})
+					2'b10: LUT_DATA	<= 9'h156;
+					2'b01: LUT_DATA	<= 9'h144;
+					default: LUT_DATA <= 9'h120;
+				endcase
+			end
 	LCD_LINE2+2:	begin
-						case ({victory, defeat})
-							2'b10: LUT_DATA	<= 9'h169;
-							2'b01: LUT_DATA	<= 9'h165;
-							default: LUT_DATA <= 9'h120;
-						endcase
-					end
+				case ({WIN, LOST})
+				2'b10: LUT_DATA	<= 9'h169;
+				2'b01: LUT_DATA	<= 9'h165;
+				default: LUT_DATA <= 9'h120;
+				endcase
+			end
 	LCD_LINE2+3:	begin
-						case ({victory, defeat})
-							2'b10: LUT_DATA	<= 9'h163;
-							2'b01: LUT_DATA	<= 9'h166;
-							default: LUT_DATA <= 9'h120;
-						endcase
-					end
+				case ({WIN, LOST})
+					2'b10: LUT_DATA	<= 9'h163;
+					2'b01: LUT_DATA	<= 9'h166;
+					default: LUT_DATA <= 9'h120;
+				endcase
+			end
 	LCD_LINE2+4:	begin
-						case ({victory, defeat})
-							2'b10: LUT_DATA	<= 9'h174;
-							2'b01: LUT_DATA	<= 9'h165;
-							default: LUT_DATA <= 9'h120;
-						endcase
-					end
+				case ({WIN, LOST})
+					2'b10: LUT_DATA	<= 9'h174;
+					2'b01: LUT_DATA	<= 9'h165;
+					default: LUT_DATA <= 9'h120;
+				endcase
+			end
 	LCD_LINE2+5:	begin
-						case ({victory, defeat})
-							2'b10: LUT_DATA	<= 9'h16F;
-							2'b01: LUT_DATA	<= 9'h161;
-							default: LUT_DATA <= 9'h120;
-						endcase
-					end
+				case ({WIN, LOST})
+					2'b10: LUT_DATA	<= 9'h16F;
+					2'b01: LUT_DATA	<= 9'h161;
+					default: LUT_DATA <= 9'h120;
+				endcase
+			end
 	LCD_LINE2+6:	begin
-						case ({victory, defeat})
-							2'b10: LUT_DATA	<= 9'h172;
-							2'b01: LUT_DATA	<= 9'h174;
-							default: LUT_DATA <= 9'h120;
-						endcase
-					end
+				case ({WIN, LOST})
+					2'b10: LUT_DATA	<= 9'h172;
+					2'b01: LUT_DATA	<= 9'h174;
+					default: LUT_DATA <= 9'h120;
+				endcase
+			end
 	LCD_LINE2+7:	begin
-						case ({victory, defeat})
-							2'b10: LUT_DATA	<= 9'h179;
-							2'b01: LUT_DATA	<= 9'h120;
-							default: LUT_DATA <= 9'h120;
-						endcase
-					end
+				case ({WIN, LOST})
+					2'b10: LUT_DATA	<= 9'h179;
+					2'b01: LUT_DATA	<= 9'h120;
+					default: LUT_DATA <= 9'h120;
+				endcase
+			end
 	LCD_LINE2+8:	LUT_DATA <= 9'h120;
 	LCD_LINE2+9:	LUT_DATA <= 9'h120;
 	LCD_LINE2+10:	LUT_DATA <= 9'h120;
