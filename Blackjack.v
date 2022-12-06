@@ -27,12 +27,26 @@ wire [7:0]val3;
 wire [7:0]val4;
 wire [7:0]val5;
 
-// Calling Up Player Cards
+// Player Cards Initiated
+wire [7:0]card1;
+wire [7:0]card2;
+wire [7:0]card3;
+wire [7:0]card4;
+wire [7:0]card5;
+
+// Deal Player Cards
 
 
 // Defining Dealer Card Value
 wire [7:0]dvalue;
 wire [7:0]dcardsnum;
+
+// Dealer Cards Initiated
+wire [7:0]dcard1;
+wire [7:0]dcard2;
+wire [7:0]dcard3;
+wire [7:0]dcard4;
+wire [7:0]dcard5;
 
 // Defining Output Variables
 reg  win;
