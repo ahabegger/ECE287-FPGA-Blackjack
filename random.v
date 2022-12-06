@@ -9,8 +9,15 @@ output [7:0]card4,
 output [7:0]card5
 );
 
+// Card Holder
+reg [7:0]card1_holder;
+reg [7:0]card2_holder;
+reg [7:0]card3_holder;
+reg [7:0]card4_holder;
+reg [7:0]card5_holder;
 
 reg [127:0]lfsr; // this is a linear feedback shift register
+reg [15:0]random_number;
 
 /*
 Card Logic 
@@ -56,6 +63,20 @@ begin
 						 lfsr[30:0], lfsr[7] ^ lfsr[127] ^ lfsr [112] ^ lfsr[92]}; // 32 bits
 		end
 	end
+end
+
+
+
+always@(*)
+begin 
+	
+
+	card1 = ;
+	card2 =;
+	card3 =;
+	card4 =;
+	card5	=;
+
 end
 
 
