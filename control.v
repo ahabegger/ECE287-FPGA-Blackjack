@@ -1,8 +1,8 @@
 module CONTROL(
    input[4:0] hand,
-   input defeat,
-   input victory,
-   input begin_s,
+   input LOST,
+   input WIN,
+   input start,
    input rst,
    input clk2,
    
@@ -11,22 +11,20 @@ module CONTROL(
 	output LCD_RW,
 	output reg LCD_EN,
 	output LCD_RS
-        output[21:0] c_out
 );
 
 reg[1:0] v1;
 reg[3:0] v2;
 reg[22:0] c;
 reg[5:0] count;
-reg[4:0] state, state_next;
+	reg[4:0] state, NS;
 reg clk;
-
 reg[7:0] data;
 reg en;
 reg rs;
 reg rw;
 
-assign c_out=c;
+
 assign LCD_RW=rw;
 assign LCD_RS=rs;
 assign LCD_DATA=data;
@@ -39,7 +37,7 @@ begin
 	if (!rst)
 		state <= 0;
 	else
-		state <= state_next;
+		state <= NS;
 end
 
 always@ (posedge clk2)
@@ -58,129 +56,129 @@ always@ (posedge clk2)
 		if (count==98) LCD_EN <= 1'b0;
 	end 
 	
-always @(state, begin_s)
+	always @(state, start)
 begin
    c=0;
-   state_next=state;
+   NS=state;
    
    case (state)
         5'b00000:
            begin
-           if (begin_s)
-              state_next=5'b00001;
-           else state_next=5'b00000;
+	   if (start)
+              NS = 5'b00001;
+           else NS = 5'b00000;
            end
         5'b00001:
            begin
-           state_next=5'b00010;
+           NS = 5'b00010;
            c[0]=1'b1;
            end
         5'b00010:
            begin
-           state_next=5'b00011;
+           NS = 5'b00011;
            c[1]=1'b1;
            end
         5'b00011:
            begin
-           if (defeat)
-              state_next=5'b00100;
-           else if (victory)
-              state_next=5'b01011;
-                else state_next=5'b10011;
+	   if (LOST)
+              NS = 5'b00100;
+	   else if (WIN)
+              NS = 5'b01011;
+                else NS = 5'b10011;
            c[2]=1'b1;
            end
         5'b00100:
            begin
-           state_next=5'b00101;
+           NS = 5'b00101;
            c[3]=1'b1;
            end
         5'b00101:
            begin
-           state_next=5'b00110;
+           NS = 5'b00110;
            c[4]=1'b1;
            end
         5'b00110:
            begin
-           state_next=5'b00111;
+           NS = 5'b00111;
            c[5]=1'b1;
            end
         5'b00111:
            begin
-           state_next=5'b01000;
+           NS = 5'b01000;
            c[6]=1'b1;
            end
         5'b01000:
            begin
-           state_next=5'b01001;
+           NS = 5'b01001;
            c[7]=1'b1;
            end
         5'b01001:
            begin
-           state_next=5'b01010;
+           NS = 5'b01010;
            c[8]=1'b1;
            end
         5'b01010:
            begin
-           state_next=5'b10110;
+           NS = 5'b10110;
            c[9]=1'b1;
            end
         5'b01011:
            begin
-           state_next=5'b01100;
+           NS = 5'b01100;
            c[10]=1'b1;
            end
         5'b01100:
            begin
-           state_next=5'b01101;
+           NS = 5'b01101;
            c[11]=1'b1;
            end
         5'b01101:
            begin
-           state_next=5'b01110;
+           NS = 5'b01110;
            c[12]=1'b1;
            end
         5'b01110:
            begin
-           state_next=5'b01111;
+           NS = 5'b01111;
            c[13]=1'b1;
            end
         5'b01111:
            begin
-           state_next=5'b10000;
+           NS = 5'b10000;
            c[14]=1'b1;
            end
         5'b10000:
            begin
-           state_next=5'b10001;
+           NS = 5'b10001;
            c[15]=1'b1;
            end
         5'b10001:
            begin
-           state_next=5'b10010;
+           NS = 5'b10010;
            c[16]=1'b1;
            end
         5'b10010:
            begin
-           state_next=5'b10110;
+           NS = 5'b10110;
            c[17]=1'b1;
            end
         5'b10011:
            begin
-           state_next=5'b10100;
+           NS = 5'b10100;
            c[18]=1'b1;
            end
         5'b10100:
            begin
-           state_next=5'b10101;
+           NS = 5'b10101;
            c[19]=1'b1;
            end
         5'b10101:
            begin
-           if (defeat)
-              state_next=5'b00100;
-           else if (victory)
-              state_next=5'b01011;
-                else state_next=5'b10011;
+	   if (LOST)
+              NS = 5'b00100;
+	   else if (WIN)
+              NS = 5'b01011;
+                else NS = 5'b10011;
            c[20]=1'b1;
            end
         5'b10110:
@@ -188,18 +186,18 @@ begin
            c[21]=1'b1;
            if (!rst)
               begin
-              state_next=5'b10111;
+              NS = 5'b10111;
               end
            else begin
-                state_next=5'b10110;
+                NS = 5'b10110;
                 end
            end
         5'b10111:
            begin
-           state_next=5'b00000;
+           NS = 5'b00000;
            c[22]=1'b1;
            end
-        default: state_next = state;
+        default: NS = state;
 	endcase
 end
 
