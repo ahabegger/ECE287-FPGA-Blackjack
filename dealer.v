@@ -1,4 +1,6 @@
 module dealer(
+input clk,
+input rst,
 input deal, 
 output [7:0]card1, 
 output [7:0]card2, 
