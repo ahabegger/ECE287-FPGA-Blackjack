@@ -39,7 +39,7 @@ wire [7:0]card4;
 wire [7:0]card5;
 
 // Deal Player Cards
-
+player PLAYER(deal, card1, card2, card3, card4, card5, val2, val3, val4, val5);
 
 // Defining Dealer Card Value
 wire [7:0]dvalue;
@@ -53,7 +53,7 @@ wire [7:0]dcard4;
 wire [7:0]dcard5;
 
 // Deal Dealer Logic
-
+dealer DEALER(deal, dcard1, dcard2, dcard3, dcard4, dcard5, dvalue, dcardsnum);
 
 // Defining Output Variables
 reg  win;

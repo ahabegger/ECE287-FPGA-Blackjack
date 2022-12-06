@@ -1,12 +1,14 @@
-module dealer(
+module player(
 input deal, 
 output [7:0]card1, 
 output [7:0]card2, 
 output [7:0]card3, 
 output [7:0]card4, 
 output [7:0]card5, 
-output reg [7:0]value, 
-output reg [7:0]cardsnum
+output reg [7:0]val2, 
+output reg [7:0]val3, 
+output reg [7:0]val4, 
+output reg [7:0]val5
 );
 
 // Card Value
@@ -26,13 +28,7 @@ integer cardval5_holder;
 // Aces holder
 reg [4:0]aces;
 
-// Define Values
-reg [7:0]val2;
-reg [7:0]val3; 
-reg [7:0]val4; 
-reg [7:0]val5;
-
-random DDEAL(deal, card1, card2, card3, card4, card5);
+random PDEAL(deal, card1, card2, card3, card4, card5);
 
 always@(*)
 begin 
@@ -117,8 +113,8 @@ begin
 			  (cardval3 == 1),
 			  (cardval4 == 1), 
 			  (cardval5 == 1)};
-
-			  
+	
+	
 	// Val2
 	if (aces[0] || aces[1])
 		val2 = cardval1 + cardval2 + 10;
@@ -160,33 +156,8 @@ begin
 	end
 	else
 		val5 = cardval1 + cardval2 + cardval3 + cardval4 + cardval5;
-
-	
-	// Playing S17 Rules for Dealer Play
-	// Dealer Must Stand On 17
-	// Must Draw To 16
-	if (val2 > 16)
-	begin 
-		value = val2;
-		cardsnum = 8'd2;
-	end
-	else if (val3 > 16)
-	begin 
-		value = val3;
-		cardsnum = 8'd3;
-	end
-	else if (val4 > 16)
-	begin
-		value = val4;
-		cardsnum = 8'd4;
-	end
-	else 
-	begin 
-		value = val5;
-		cardsnum = 8'd5;
-	end
-	
 	
 end
+
 
 endmodule

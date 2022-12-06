@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Blackjack
-Mon Dec 05 20:22:30 2022
+Tue Dec 06 01:30:02 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -17,11 +17,14 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   9. Registers Removed During Synthesis
  10. Removed Registers Triggering Further Register Optimizations
  11. General Register Statistics
- 12. Parameter Settings for User Entity Instance: Top-level Entity: |Blackjack
- 13. Post-Synthesis Netlist Statistics for Top Partition
- 14. Elapsed Time Per Partition
- 15. Analysis & Synthesis Messages
- 16. Analysis & Synthesis Suppressed Messages
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |Blackjack
+ 14. Port Connectivity Checks: "dealer:DEALER"
+ 15. Port Connectivity Checks: "player:PLAYER"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -48,7 +51,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Dec 05 20:22:30 2022       ;
+; Analysis & Synthesis Status        ; Successful - Tue Dec 06 01:30:02 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; Blackjack                                   ;
 ; Top-level Entity Name              ; Blackjack                                   ;
@@ -173,6 +176,9 @@ https://fpgasoftware.intel.com/eula.
 ; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                     ; Library ;
 +----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------------+---------+
 ; Blackjack.v                      ; yes             ; User Verilog HDL File  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v ;         ;
+; dealer.v                         ; yes             ; User Verilog HDL File  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v    ;         ;
+; random.v                         ; yes             ; User Verilog HDL File  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/random.v    ;         ;
+; player.v                         ; yes             ; User Verilog HDL File  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v    ;         ;
 +----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------------+---------+
 
 
@@ -250,11 +256,7 @@ Encoding Type:  One-Hot
 ; Register name                          ; Reason for Removal ;
 +----------------------------------------+--------------------+
 ; S.BUST                                 ; Lost fanout        ;
-; S.DEAL_BJ                              ; Lost fanout        ;
-; S.DEAL_BUST                            ; Lost fanout        ;
-; S.DEAL_HIGH                            ; Lost fanout        ;
 ; S.DEAL_LOW                             ; Lost fanout        ;
-; S.LOST                                 ; Lost fanout        ;
 ; S~4                                    ; Lost fanout        ;
 ; S~5                                    ; Lost fanout        ;
 ; S~6                                    ; Lost fanout        ;
@@ -270,22 +272,25 @@ Encoding Type:  One-Hot
 ; S.C_5                                  ; Lost fanout        ;
 ; S.BJ_5                                 ; Lost fanout        ;
 ; S.DEAL                                 ; Lost fanout        ;
+; S.DEAL_BJ                              ; Lost fanout        ;
+; S.DEAL_BUST                            ; Lost fanout        ;
 ; S.DEAL_TIE                             ; Lost fanout        ;
+; S.DEAL_HIGH                            ; Lost fanout        ;
+; S.LOST                                 ; Lost fanout        ;
 ; S.TIE                                  ; Lost fanout        ;
 ; S.WIN                                  ; Lost fanout        ;
 ; Total Number of Removed Registers = 24 ;                    ;
 +----------------------------------------+--------------------+
 
 
-+-----------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                 ;
-+---------------+--------------------+----------------------------------------+
-; Register name ; Reason for Removal ; Registers Removed due to This Register ;
-+---------------+--------------------+----------------------------------------+
-; S~4           ; Lost Fanouts       ; S.C_4, S.BJ_5, S.DEAL_TIE              ;
-; S~5           ; Lost Fanouts       ; S.C_5                                  ;
-; S~6           ; Lost Fanouts       ; S.DEAL                                 ;
-+---------------+--------------------+----------------------------------------+
++------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                ;
++---------------+--------------------+-----------------------------------------------------------------------+
+; Register name ; Reason for Removal ; Registers Removed due to This Register                                ;
++---------------+--------------------+-----------------------------------------------------------------------+
+; S~4           ; Lost Fanouts       ; S.C_3, S.C_4, S.BJ_5, S.DEAL_BJ, S.DEAL_BUST, S.DEAL_TIE, S.DEAL_HIGH ;
+; S~5           ; Lost Fanouts       ; S.C_5, S.DEAL                                                         ;
++---------------+--------------------+-----------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -301,6 +306,16 @@ Encoding Type:  One-Hot
 ; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Blackjack|NS                     ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |Blackjack|dealer:DEALER|value[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 
 
 +---------------------------------------------------------------------------+
@@ -328,6 +343,35 @@ Encoding Type:  One-Hot
 ; WIN            ; 010001 ; Unsigned Binary                                 ;
 +----------------+--------+-------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "dealer:DEALER"                                                                       ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; card1 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; card2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; card3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; card4 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; card5 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "player:PLAYER"                                                                       ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; card1 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; card2 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; card3 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; card4 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; card5 ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; val3  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; val4  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; val5  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -360,7 +404,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Mon Dec 05 20:22:12 2022
+    Info: Processing started: Tue Dec 06 01:29:50 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Blackjack -c Blackjack
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -368,63 +412,82 @@ Info (12021): Found 1 design units, including 1 entities, in source file blackja
     Info (12023): Found entity 1: Blackjack File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file seven_segment.v
     Info (12023): Found entity 1: seven_segment File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/seven_segment.v Line: 1
-Warning (12019): Can't analyze file -- file module seven_segment_negative.v is missing
 Info (12021): Found 1 design units, including 1 entities, in source file seven_segment_negative.v
     Info (12023): Found entity 1: seven_segment_negative File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/seven_segment_negative.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file three_decimal_vals_w_neg.v
     Info (12023): Found entity 1: three_decimal_vals_w_neg File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file two_decimal_vals.v
     Info (12023): Found entity 1: two_decimal_vals File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file deck.v
-    Info (12023): Found entity 1: card File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/deck.v Line: 1
-Warning (12019): Can't analyze file -- file card.v is missing
-Info (12021): Found 1 design units, including 1 entities, in source file hand.v
-    Info (12023): Found entity 1: hand File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/hand.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file draw.v
-    Info (12023): Found entity 1: draw File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/draw.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file round.v
-    Info (12023): Found entity 1: round File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/round.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file dealer.v
     Info (12023): Found entity 1: dealer File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file hit.v
-    Info (12023): Found entity 1: hit File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/hit.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file random.v
+    Info (12023): Found entity 1: random File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/random.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file player.v
+    Info (12023): Found entity 1: player File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 1
 Info (12127): Elaborating entity "Blackjack" for the top level hierarchy
-Warning (10858): Verilog HDL warning at Blackjack.v(24): object value used but never assigned File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 24
-Warning (10858): Verilog HDL warning at Blackjack.v(25): object val2 used but never assigned File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 25
-Warning (10858): Verilog HDL warning at Blackjack.v(31): object dvalue used but never assigned File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 31
-Warning (10858): Verilog HDL warning at Blackjack.v(32): object dcardsnum used but never assigned File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 32
-Warning (10240): Verilog HDL Always Construct warning at Blackjack.v(64): inferring latch(es) for variable "NS", which holds its previous value in one or more paths through the always construct File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10264): Verilog HDL Case Statement information at Blackjack.v(150): all case item expressions in this case statement are onehot File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 150
-Warning (10240): Verilog HDL Always Construct warning at Blackjack.v(150): inferring latch(es) for variable "win", which holds its previous value in one or more paths through the always construct File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 150
-Warning (10240): Verilog HDL Always Construct warning at Blackjack.v(150): inferring latch(es) for variable "tie", which holds its previous value in one or more paths through the always construct File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 150
-Warning (10030): Net "value" at Blackjack.v(24) has no driver or initial value, using a default initial value '0' File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 24
-Warning (10030): Net "val2" at Blackjack.v(25) has no driver or initial value, using a default initial value '0' File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 25
-Warning (10030): Net "dvalue" at Blackjack.v(31) has no driver or initial value, using a default initial value '0' File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 31
-Warning (10030): Net "dcardsnum.00000010" at Blackjack.v(32) has no driver or initial value, using a default initial value '0' File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 32
+Warning (10858): Verilog HDL warning at Blackjack.v(28): object value used but never assigned File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 28
+Warning (10240): Verilog HDL Always Construct warning at Blackjack.v(88): inferring latch(es) for variable "NS", which holds its previous value in one or more paths through the always construct File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10264): Verilog HDL Case Statement information at Blackjack.v(174): all case item expressions in this case statement are onehot File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 174
+Warning (10240): Verilog HDL Always Construct warning at Blackjack.v(174): inferring latch(es) for variable "win", which holds its previous value in one or more paths through the always construct File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 174
+Warning (10240): Verilog HDL Always Construct warning at Blackjack.v(174): inferring latch(es) for variable "tie", which holds its previous value in one or more paths through the always construct File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 174
+Warning (10030): Net "value" at Blackjack.v(28) has no driver or initial value, using a default initial value '0' File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 28
 Warning (10034): Output port "seg7_neg_sign" at Blackjack.v(11) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
 Warning (10034): Output port "seg7_dig0" at Blackjack.v(12) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 12
 Warning (10034): Output port "seg7_dig1" at Blackjack.v(13) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
 Warning (10034): Output port "seg7_dig2" at Blackjack.v(14) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
 Warning (10034): Output port "seg7_dig3" at Blackjack.v(15) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 15
 Warning (10034): Output port "seg7_dig4" at Blackjack.v(17) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 17
-Info (10041): Inferred latch for "NS.WIN" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.TIE" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.LOST" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.DEAL_LOW" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.DEAL_HIGH" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.DEAL_TIE" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.DEAL_BUST" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.DEAL_BJ" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.DEAL" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.BUST" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.BJ_5" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.C_5" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.C_4" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.C_3" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.C_2" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.BET" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.START" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
-Info (10041): Inferred latch for "NS.INITS" at Blackjack.v(64) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 64
+Info (10041): Inferred latch for "NS.WIN" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.TIE" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.LOST" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.DEAL_LOW" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.DEAL_HIGH" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.DEAL_TIE" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.DEAL_BUST" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.DEAL_BJ" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.DEAL" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.BUST" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.BJ_5" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.C_5" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.C_4" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.C_3" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.C_2" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.BET" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.START" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (10041): Inferred latch for "NS.INITS" at Blackjack.v(88) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 88
+Info (12128): Elaborating entity "player" for hierarchy "player:PLAYER" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 42
+Warning (10230): Verilog HDL assignment warning at player.v(120): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 120
+Warning (10230): Verilog HDL assignment warning at player.v(122): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 122
+Warning (10230): Verilog HDL assignment warning at player.v(129): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 129
+Warning (10230): Verilog HDL assignment warning at player.v(131): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 131
+Warning (10230): Verilog HDL assignment warning at player.v(134): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 134
+Warning (10230): Verilog HDL assignment warning at player.v(141): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 141
+Warning (10230): Verilog HDL assignment warning at player.v(143): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 143
+Warning (10230): Verilog HDL assignment warning at player.v(146): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 146
+Warning (10230): Verilog HDL assignment warning at player.v(153): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 153
+Warning (10230): Verilog HDL assignment warning at player.v(155): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 155
+Warning (10230): Verilog HDL assignment warning at player.v(158): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 158
+Info (12128): Elaborating entity "random" for hierarchy "player:PLAYER|random:PDEAL" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 31
+Warning (10034): Output port "card1" at random.v(2) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/random.v Line: 2
+Warning (10034): Output port "card2" at random.v(3) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/random.v Line: 3
+Warning (10034): Output port "card3" at random.v(4) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/random.v Line: 4
+Warning (10034): Output port "card4" at random.v(5) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/random.v Line: 5
+Warning (10034): Output port "card5" at random.v(7) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/random.v Line: 7
+Warning (12158): Entity "random" contains only dangling pins File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 31
+Info (12128): Elaborating entity "dealer" for hierarchy "dealer:DEALER" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 56
+Warning (10230): Verilog HDL assignment warning at dealer.v(124): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 124
+Warning (10230): Verilog HDL assignment warning at dealer.v(126): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 126
+Warning (10230): Verilog HDL assignment warning at dealer.v(133): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 133
+Warning (10230): Verilog HDL assignment warning at dealer.v(135): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 135
+Warning (10230): Verilog HDL assignment warning at dealer.v(138): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 138
+Warning (10230): Verilog HDL assignment warning at dealer.v(145): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 145
+Warning (10230): Verilog HDL assignment warning at dealer.v(147): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 147
+Warning (10230): Verilog HDL assignment warning at dealer.v(150): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 150
+Warning (10230): Verilog HDL assignment warning at dealer.v(157): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 157
+Warning (10230): Verilog HDL assignment warning at dealer.v(159): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 159
+Warning (10230): Verilog HDL assignment warning at dealer.v(162): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 162
+Warning (12011): Net is missing source, defaulting to GND
+    Warning (12110): Net "deal" is missing source, defaulting to GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 21
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "seg7_neg_sign[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
     Warning (13410): Pin "seg7_neg_sign[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
@@ -485,11 +548,11 @@ Warning (21074): Design contains 9 input pin(s) that do not drive logic
 Info (21057): Implemented 51 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 9 input pins
     Info (21059): Implemented 42 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 73 warnings
-    Info: Peak virtual memory: 4735 megabytes
-    Info: Processing ended: Mon Dec 05 20:22:30 2022
-    Info: Elapsed time: 00:00:18
-    Info: Total CPU time (on all processors): 00:00:44
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 95 warnings
+    Info: Peak virtual memory: 4736 megabytes
+    Info: Processing ended: Tue Dec 06 01:30:02 2022
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:17
 
 
 +------------------------------------------+
