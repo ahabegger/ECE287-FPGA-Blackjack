@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Blackjack
-Tue Dec 06 16:25:35 2022
+Tue Dec 06 19:58:04 2022
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -13,20 +13,43 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |Blackjack|S
+  8. User-Specified and Inferred Latches
   9. Registers Removed During Synthesis
  10. Removed Registers Triggering Further Register Optimizations
  11. General Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
  13. Parameter Settings for User Entity Instance: Top-level Entity: |Blackjack
- 14. Port Connectivity Checks: "dealer:DEALER|random:DDEAL"
- 15. Port Connectivity Checks: "dealer:DEALER"
- 16. Port Connectivity Checks: "player:PLAYER|random:PDEAL"
- 17. Port Connectivity Checks: "player:PLAYER"
- 18. Post-Synthesis Netlist Statistics for Top Partition
- 19. Elapsed Time Per Partition
- 20. Analysis & Synthesis Messages
- 21. Analysis & Synthesis Suppressed Messages
+ 14. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Mod0
+ 15. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Mod1
+ 16. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Div0
+ 17. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Mod2
+ 18. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Mod3
+ 19. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Div1
+ 20. Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Mod4
+ 21. Parameter Settings for Inferred Entity Instance: two_decimal_vals:BETS|lpm_divide:Mod0
+ 22. Parameter Settings for Inferred Entity Instance: two_decimal_vals:BETS|lpm_divide:Div0
+ 23. Parameter Settings for Inferred Entity Instance: two_decimal_vals:BETS|lpm_divide:Mod2
+ 24. Parameter Settings for Inferred Entity Instance: two_decimal_vals:STATE|lpm_divide:Mod0
+ 25. Parameter Settings for Inferred Entity Instance: two_decimal_vals:STATE|lpm_divide:Div0
+ 26. Parameter Settings for Inferred Entity Instance: two_decimal_vals:STATE|lpm_divide:Mod2
+ 27. Parameter Settings for Inferred Entity Instance: dealer:DEALER|lpm_divide:Mod3
+ 28. Parameter Settings for Inferred Entity Instance: dealer:DEALER|lpm_divide:Mod4
+ 29. Parameter Settings for Inferred Entity Instance: dealer:DEALER|lpm_divide:Mod2
+ 30. Parameter Settings for Inferred Entity Instance: dealer:DEALER|lpm_divide:Mod1
+ 31. Parameter Settings for Inferred Entity Instance: dealer:DEALER|lpm_divide:Mod0
+ 32. Parameter Settings for Inferred Entity Instance: player:PLAYER|lpm_divide:Mod1
+ 33. Parameter Settings for Inferred Entity Instance: player:PLAYER|lpm_divide:Mod3
+ 34. Parameter Settings for Inferred Entity Instance: player:PLAYER|lpm_divide:Mod4
+ 35. Parameter Settings for Inferred Entity Instance: player:PLAYER|lpm_divide:Mod0
+ 36. Port Connectivity Checks: "two_decimal_vals:STATE"
+ 37. Port Connectivity Checks: "dealer:DEALER|random:DDEAL"
+ 38. Port Connectivity Checks: "dealer:DEALER"
+ 39. Port Connectivity Checks: "player:PLAYER|random:PDEAL"
+ 40. Port Connectivity Checks: "player:PLAYER"
+ 41. Post-Synthesis Netlist Statistics for Top Partition
+ 42. Elapsed Time Per Partition
+ 43. Analysis & Synthesis Messages
+ 44. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -53,16 +76,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Dec 06 16:25:35 2022       ;
+; Analysis & Synthesis Status        ; Successful - Tue Dec 06 19:58:03 2022       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; Blackjack                                   ;
 ; Top-level Entity Name              ; Blackjack                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 68                                          ;
+; Total logic elements               ; 638                                         ;
+;     Total combinational functions  ; 638                                         ;
+;     Dedicated logic registers      ; 13                                          ;
+; Total registers                    ; 13                                          ;
+; Total pins                         ; 80                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -165,140 +188,168 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 6           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                   ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                     ; Library ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------------+---------+
-; Blackjack.v                      ; yes             ; User Verilog HDL File  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v ;         ;
-; dealer.v                         ; yes             ; User Verilog HDL File  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v    ;         ;
-; random.v                         ; yes             ; User Verilog HDL File  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/random.v    ;         ;
-; player.v                         ; yes             ; User Verilog HDL File  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v    ;         ;
-+----------------------------------+-----------------+------------------------+--------------------------------------------------------------------------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                        ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                    ; Library ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
+; Blackjack.v                      ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v                ;         ;
+; seven_segment.v                  ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/seven_segment.v            ;         ;
+; seven_segment_negative.v         ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/seven_segment_negative.v   ;         ;
+; three_decimal_vals_w_neg.v       ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v ;         ;
+; two_decimal_vals.v               ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v         ;         ;
+; dealer.v                         ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v                   ;         ;
+; random.v                         ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/random.v                   ;         ;
+; player.v                         ; yes             ; User Verilog HDL File        ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v                   ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/lpm_divide.tdf                                           ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/abs_divider.inc                                          ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/sign_div_unsign.inc                                      ;         ;
+; aglobal191.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/19.1/quartus/libraries/megafunctions/aglobal191.inc                                           ;         ;
+; db/lpm_divide_gno.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_gno.tdf      ;         ;
+; db/abs_divider_8ag.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_8ag.tdf     ;         ;
+; db/alt_u_div_e4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_e4f.tdf       ;         ;
+; db/add_sub_7pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/add_sub_7pc.tdf         ;         ;
+; db/add_sub_8pc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/add_sub_8pc.tdf         ;         ;
+; db/lpm_abs_2v9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_2v9.tdf         ;         ;
+; db/lpm_abs_6v9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_6v9.tdf         ;         ;
+; db/lpm_divide_p0p.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_p0p.tdf      ;         ;
+; db/abs_divider_kbg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_kbg.tdf     ;         ;
+; db/alt_u_div_67f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_67f.tdf       ;         ;
+; db/lpm_abs_i0a.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_i0a.tdf         ;         ;
+; db/lpm_divide_soo.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_soo.tdf      ;         ;
+; db/lpm_divide_jno.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_jno.tdf      ;         ;
+; db/abs_divider_bag.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_bag.tdf     ;         ;
+; db/alt_u_div_k4f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_k4f.tdf       ;         ;
+; db/lpm_abs_5v9.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_5v9.tdf         ;         ;
+; db/lpm_divide_s0p.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_s0p.tdf      ;         ;
+; db/abs_divider_nbg.tdf           ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_nbg.tdf     ;         ;
+; db/alt_u_div_c7f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_c7f.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+-----------------------------------------------------------------------------------------------------------------+---------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-;                                             ;                ;
-; Total combinational functions               ; 0              ;
-; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 0              ;
-;     -- 3 input functions                    ; 0              ;
-;     -- <=2 input functions                  ; 0              ;
-;                                             ;                ;
-; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 0              ;
-;     -- arithmetic mode                      ; 0              ;
-;                                             ;                ;
-; Total registers                             ; 0              ;
-;     -- Dedicated logic registers            ; 0              ;
-;     -- I/O registers                        ; 0              ;
-;                                             ;                ;
-; I/O pins                                    ; 68             ;
-;                                             ;                ;
-; Embedded Multiplier 9-bit elements          ; 0              ;
-;                                             ;                ;
-; Maximum fan-out node                        ; random_seed[0] ;
-; Maximum fan-out                             ; 1              ;
-; Total fan-out                               ; 68             ;
-; Average fan-out                             ; 0.50           ;
-+---------------------------------------------+----------------+
++-----------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                 ;
++---------------------------------------------+-------------------------------+
+; Resource                                    ; Usage                         ;
++---------------------------------------------+-------------------------------+
+; Estimated Total logic elements              ; 638                           ;
+;                                             ;                               ;
+; Total combinational functions               ; 638                           ;
+; Logic element usage by number of LUT inputs ;                               ;
+;     -- 4 input functions                    ; 183                           ;
+;     -- 3 input functions                    ; 174                           ;
+;     -- <=2 input functions                  ; 281                           ;
+;                                             ;                               ;
+; Logic elements by mode                      ;                               ;
+;     -- normal mode                          ; 420                           ;
+;     -- arithmetic mode                      ; 218                           ;
+;                                             ;                               ;
+; Total registers                             ; 13                            ;
+;     -- Dedicated logic registers            ; 13                            ;
+;     -- I/O registers                        ; 0                             ;
+;                                             ;                               ;
+; I/O pins                                    ; 80                            ;
+;                                             ;                               ;
+; Embedded Multiplier 9-bit elements          ; 0                             ;
+;                                             ;                               ;
+; Maximum fan-out node                        ; two_decimal_vals:BETS|Add0~16 ;
+; Maximum fan-out                             ; 34                            ;
+; Total fan-out                               ; 1876                          ;
+; Average fan-out                             ; 2.31                          ;
++---------------------------------------------+-------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |Blackjack                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 68   ; 0            ; |Blackjack          ; Blackjack   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                                    ;
++------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                            ; Entity Name      ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
+; |Blackjack                               ; 638 (56)            ; 13 (13)                   ; 0           ; 0            ; 0       ; 0         ; 80   ; 0            ; |Blackjack                                                                                                                     ; Blackjack        ; work         ;
+;    |two_decimal_vals:BETS|               ; 370 (9)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS                                                                                               ; two_decimal_vals ; work         ;
+;       |lpm_divide:Div0|                  ; 123 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Div0                                                                               ; lpm_divide       ; work         ;
+;          |lpm_divide_p0p:auto_generated| ; 123 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Div0|lpm_divide_p0p:auto_generated                                                 ; lpm_divide_p0p   ; work         ;
+;             |abs_divider_kbg:divider|    ; 123 (14)            ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                         ; abs_divider_kbg  ; work         ;
+;                |alt_u_div_67f:divider|   ; 101 (101)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider   ; alt_u_div_67f    ; work         ;
+;                |lpm_abs_i0a:my_abs_num|  ; 8 (8)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num  ; lpm_abs_i0a      ; work         ;
+;       |lpm_divide:Mod0|                  ; 72 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Mod0                                                                               ; lpm_divide       ; work         ;
+;          |lpm_divide_gno:auto_generated| ; 72 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Mod0|lpm_divide_gno:auto_generated                                                 ; lpm_divide_gno   ; work         ;
+;             |abs_divider_8ag:divider|    ; 72 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Mod0|lpm_divide_gno:auto_generated|abs_divider_8ag:divider                         ; abs_divider_8ag  ; work         ;
+;                |alt_u_div_e4f:divider|   ; 72 (72)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Mod0|lpm_divide_gno:auto_generated|abs_divider_8ag:divider|alt_u_div_e4f:divider   ; alt_u_div_e4f    ; work         ;
+;       |lpm_divide:Mod2|                  ; 152 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Mod2                                                                               ; lpm_divide       ; work         ;
+;          |lpm_divide_soo:auto_generated| ; 152 (0)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Mod2|lpm_divide_soo:auto_generated                                                 ; lpm_divide_soo   ; work         ;
+;             |abs_divider_kbg:divider|    ; 152 (8)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Mod2|lpm_divide_soo:auto_generated|abs_divider_kbg:divider                         ; abs_divider_kbg  ; work         ;
+;                |alt_u_div_67f:divider|   ; 126 (126)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Mod2|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider   ; alt_u_div_67f    ; work         ;
+;                |lpm_abs_i0a:my_abs_num|  ; 18 (18)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|lpm_divide:Mod2|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num  ; lpm_abs_i0a      ; work         ;
+;       |seven_segment:ONE|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|seven_segment:ONE                                                                             ; seven_segment    ; work         ;
+;       |seven_segment:ZERO|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:BETS|seven_segment:ZERO                                                                            ; seven_segment    ; work         ;
+;    |two_decimal_vals:STATE|              ; 212 (6)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE                                                                                              ; two_decimal_vals ; work         ;
+;       |lpm_divide:Div0|                  ; 69 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Div0                                                                              ; lpm_divide       ; work         ;
+;          |lpm_divide_p0p:auto_generated| ; 69 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Div0|lpm_divide_p0p:auto_generated                                                ; lpm_divide_p0p   ; work         ;
+;             |abs_divider_kbg:divider|    ; 69 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg  ; work         ;
+;                |alt_u_div_67f:divider|   ; 53 (53)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider  ; alt_u_div_67f    ; work         ;
+;                |lpm_abs_i0a:my_abs_num|  ; 5 (5)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Div0|lpm_divide_p0p:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a      ; work         ;
+;       |lpm_divide:Mod0|                  ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Mod0                                                                              ; lpm_divide       ; work         ;
+;          |lpm_divide_gno:auto_generated| ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Mod0|lpm_divide_gno:auto_generated                                                ; lpm_divide_gno   ; work         ;
+;             |abs_divider_8ag:divider|    ; 25 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Mod0|lpm_divide_gno:auto_generated|abs_divider_8ag:divider                        ; abs_divider_8ag  ; work         ;
+;                |alt_u_div_e4f:divider|   ; 25 (25)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Mod0|lpm_divide_gno:auto_generated|abs_divider_8ag:divider|alt_u_div_e4f:divider  ; alt_u_div_e4f    ; work         ;
+;       |lpm_divide:Mod2|                  ; 98 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Mod2                                                                              ; lpm_divide       ; work         ;
+;          |lpm_divide_soo:auto_generated| ; 98 (0)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Mod2|lpm_divide_soo:auto_generated                                                ; lpm_divide_soo   ; work         ;
+;             |abs_divider_kbg:divider|    ; 98 (8)              ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Mod2|lpm_divide_soo:auto_generated|abs_divider_kbg:divider                        ; abs_divider_kbg  ; work         ;
+;                |alt_u_div_67f:divider|   ; 78 (78)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Mod2|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|alt_u_div_67f:divider  ; alt_u_div_67f    ; work         ;
+;                |lpm_abs_i0a:my_abs_num|  ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|lpm_divide:Mod2|lpm_divide_soo:auto_generated|abs_divider_kbg:divider|lpm_abs_i0a:my_abs_num ; lpm_abs_i0a      ; work         ;
+;       |seven_segment:ONE|                ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|seven_segment:ONE                                                                            ; seven_segment    ; work         ;
+;       |seven_segment:ZERO|               ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Blackjack|two_decimal_vals:STATE|seven_segment:ZERO                                                                           ; seven_segment    ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+--------------------------------------------------------------------------------------------------------------------------------+------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-Encoding Type:  One-Hot
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |Blackjack|S                                                                                                                                                                  ;
-+-------------+-------+-------+--------+------------+-------------+------------+-------------+-----------+--------+--------+--------+-------+-------+-------+-------+-------+---------+---------+
-; Name        ; S.WIN ; S.TIE ; S.LOST ; S.DEAL_LOW ; S.DEAL_HIGH ; S.DEAL_TIE ; S.DEAL_BUST ; S.DEAL_BJ ; S.DEAL ; S.BUST ; S.BJ_5 ; S.C_5 ; S.C_4 ; S.C_3 ; S.C_2 ; S.BET ; S.START ; S.INITS ;
-+-------------+-------+-------+--------+------------+-------------+------------+-------------+-----------+--------+--------+--------+-------+-------+-------+-------+-------+---------+---------+
-; S.INITS     ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 0       ;
-; S.START     ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 1       ; 1       ;
-; S.BET       ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 1     ; 0       ; 1       ;
-; S.C_2       ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 1     ; 0     ; 0       ; 1       ;
-; S.C_3       ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 1     ; 0     ; 0     ; 0       ; 1       ;
-; S.C_4       ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 1     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.C_5       ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 1     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.BJ_5      ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 1      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.BUST      ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 1      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.DEAL      ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 1      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.DEAL_BJ   ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 1         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.DEAL_BUST ; 0     ; 0     ; 0      ; 0          ; 0           ; 0          ; 1           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.DEAL_TIE  ; 0     ; 0     ; 0      ; 0          ; 0           ; 1          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.DEAL_HIGH ; 0     ; 0     ; 0      ; 0          ; 1           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.DEAL_LOW  ; 0     ; 0     ; 0      ; 1          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.LOST      ; 0     ; 0     ; 1      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.TIE       ; 0     ; 1     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-; S.WIN       ; 1     ; 0     ; 0      ; 0          ; 0           ; 0          ; 0           ; 0         ; 0      ; 0      ; 0      ; 0     ; 0     ; 0     ; 0     ; 0     ; 0       ; 1       ;
-+-------------+-------+-------+--------+------------+-------------+------------+-------------+-----------+--------+--------+--------+-------+-------+-------+-------+-------+---------+---------+
++---------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                               ;
++----------------------------------------------------+---------------------+------------------------+
+; Latch Name                                         ; Latch Enable Signal ; Free of Timing Hazards ;
++----------------------------------------------------+---------------------+------------------------+
+; NS[0]                                              ; Selector5           ; yes                    ;
+; NS[1]                                              ; Selector5           ; yes                    ;
+; NS[2]                                              ; Selector5           ; yes                    ;
+; NS[3]                                              ; Selector5           ; yes                    ;
+; NS[4]                                              ; Selector5           ; yes                    ;
+; Number of user-specified and inferred latches = 5  ;                     ;                        ;
++----------------------------------------------------+---------------------+------------------------+
+Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
-+-----------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                  ;
-+--------------------------------------------------------------+--------------------------------------+
-; Register name                                                ; Reason for Removal                   ;
-+--------------------------------------------------------------+--------------------------------------+
-; dealer:DEALER|random:DDEAL|lfsr[0]                           ; Stuck at GND due to stuck port clock ;
-; dealer:DEALER|random:DDEAL|random_number[0..12]              ; Stuck at GND due to stuck port clock ;
-; dealer:DEALER|random:DDEAL|lfsr[6..30,32..62,64..94,96..127] ; Stuck at GND due to stuck port clock ;
-; dealer:DEALER|random:DDEAL|lfsr[5]                           ; Stuck at VCC due to stuck port clock ;
-; dealer:DEALER|random:DDEAL|lfsr[4]                           ; Stuck at GND due to stuck port clock ;
-; dealer:DEALER|random:DDEAL|lfsr[3]                           ; Stuck at VCC due to stuck port clock ;
-; dealer:DEALER|random:DDEAL|lfsr[2]                           ; Stuck at GND due to stuck port clock ;
-; dealer:DEALER|random:DDEAL|lfsr[1]                           ; Stuck at VCC due to stuck port clock ;
-; player:PLAYER|random:PDEAL|lfsr[0]                           ; Stuck at GND due to stuck port clock ;
-; player:PLAYER|random:PDEAL|random_number[5..12]              ; Stuck at GND due to stuck port clock ;
-; player:PLAYER|random:PDEAL|lfsr[6..30,32..62,64..94,96..127] ; Stuck at GND due to stuck port clock ;
-; player:PLAYER|random:PDEAL|lfsr[5]                           ; Stuck at VCC due to stuck port clock ;
-; player:PLAYER|random:PDEAL|lfsr[4]                           ; Stuck at GND due to stuck port clock ;
-; player:PLAYER|random:PDEAL|lfsr[3]                           ; Stuck at VCC due to stuck port clock ;
-; player:PLAYER|random:PDEAL|lfsr[2]                           ; Stuck at GND due to stuck port clock ;
-; player:PLAYER|random:PDEAL|lfsr[1]                           ; Stuck at VCC due to stuck port clock ;
-; S.BUST                                                       ; Lost fanout                          ;
-; S.DEAL_LOW                                                   ; Lost fanout                          ;
-; S~4                                                          ; Lost fanout                          ;
-; S~5                                                          ; Lost fanout                          ;
-; S~6                                                          ; Lost fanout                          ;
-; S~7                                                          ; Lost fanout                          ;
-; S~8                                                          ; Lost fanout                          ;
-; S~9                                                          ; Lost fanout                          ;
-; S.INITS                                                      ; Lost fanout                          ;
-; S.START                                                      ; Lost fanout                          ;
-; S.BET                                                        ; Lost fanout                          ;
-; S.C_2                                                        ; Lost fanout                          ;
-; S.C_3                                                        ; Lost fanout                          ;
-; S.C_4                                                        ; Lost fanout                          ;
-; S.C_5                                                        ; Lost fanout                          ;
-; S.BJ_5                                                       ; Lost fanout                          ;
-; S.DEAL                                                       ; Lost fanout                          ;
-; S.DEAL_BJ                                                    ; Lost fanout                          ;
-; S.DEAL_BUST                                                  ; Lost fanout                          ;
-; S.DEAL_TIE                                                   ; Lost fanout                          ;
-; S.DEAL_HIGH                                                  ; Lost fanout                          ;
-; S.LOST                                                       ; Lost fanout                          ;
-; S.TIE                                                        ; Lost fanout                          ;
-; S.WIN                                                        ; Lost fanout                          ;
-; Total Number of Removed Registers = 295                      ;                                      ;
-+--------------------------------------------------------------+--------------------------------------+
++-------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                    ;
++--------------------------------------------------------------+----------------------------------------+
+; Register name                                                ; Reason for Removal                     ;
++--------------------------------------------------------------+----------------------------------------+
+; S[5]                                                         ; Stuck at GND due to stuck port data_in ;
+; dealer:DEALER|random:DDEAL|lfsr[0]                           ; Stuck at GND due to stuck port clock   ;
+; dealer:DEALER|random:DDEAL|random_number[0..12]              ; Stuck at GND due to stuck port clock   ;
+; dealer:DEALER|random:DDEAL|lfsr[6..30,32..62,64..94,96..127] ; Stuck at GND due to stuck port clock   ;
+; dealer:DEALER|random:DDEAL|lfsr[5]                           ; Stuck at VCC due to stuck port clock   ;
+; dealer:DEALER|random:DDEAL|lfsr[4]                           ; Stuck at GND due to stuck port clock   ;
+; dealer:DEALER|random:DDEAL|lfsr[3]                           ; Stuck at VCC due to stuck port clock   ;
+; dealer:DEALER|random:DDEAL|lfsr[2]                           ; Stuck at GND due to stuck port clock   ;
+; dealer:DEALER|random:DDEAL|lfsr[1]                           ; Stuck at VCC due to stuck port clock   ;
+; player:PLAYER|random:PDEAL|lfsr[0]                           ; Stuck at GND due to stuck port clock   ;
+; player:PLAYER|random:PDEAL|random_number[5..12]              ; Stuck at GND due to stuck port clock   ;
+; player:PLAYER|random:PDEAL|lfsr[6..30,32..62,64..94,96..127] ; Stuck at GND due to stuck port clock   ;
+; player:PLAYER|random:PDEAL|lfsr[5]                           ; Stuck at VCC due to stuck port clock   ;
+; player:PLAYER|random:PDEAL|lfsr[4]                           ; Stuck at GND due to stuck port clock   ;
+; player:PLAYER|random:PDEAL|lfsr[3]                           ; Stuck at VCC due to stuck port clock   ;
+; player:PLAYER|random:PDEAL|lfsr[2]                           ; Stuck at GND due to stuck port clock   ;
+; player:PLAYER|random:PDEAL|lfsr[1]                           ; Stuck at VCC due to stuck port clock   ;
+; Total Number of Removed Registers = 272                      ;                                        ;
++--------------------------------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------+
@@ -306,12 +357,10 @@ Encoding Type:  One-Hot
 +--------------------------------------+-------------------------+-------------------------------------------------------------------------+
 ; Register name                        ; Reason for Removal      ; Registers Removed due to This Register                                  ;
 +--------------------------------------+-------------------------+-------------------------------------------------------------------------+
-; S~4                                  ; Lost Fanouts            ; S.C_3, S.C_4, S.BJ_5, S.DEAL_BJ, S.DEAL_BUST, S.DEAL_TIE, S.DEAL_HIGH   ;
 ; dealer:DEALER|random:DDEAL|lfsr[0]   ; Stuck at GND            ; dealer:DEALER|random:DDEAL|lfsr[96], dealer:DEALER|random:DDEAL|lfsr[1] ;
 ;                                      ; due to stuck port clock ;                                                                         ;
 ; player:PLAYER|random:PDEAL|lfsr[0]   ; Stuck at GND            ; player:PLAYER|random:PDEAL|lfsr[96], player:PLAYER|random:PDEAL|lfsr[1] ;
 ;                                      ; due to stuck port clock ;                                                                         ;
-; S~5                                  ; Lost Fanouts            ; S.C_5, S.DEAL                                                           ;
 ; dealer:DEALER|random:DDEAL|lfsr[111] ; Stuck at GND            ; dealer:DEALER|random:DDEAL|lfsr[32]                                     ;
 ;                                      ; due to stuck port clock ;                                                                         ;
 ; dealer:DEALER|random:DDEAL|lfsr[97]  ; Stuck at GND            ; dealer:DEALER|random:DDEAL|lfsr[64]                                     ;
@@ -328,12 +377,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
+; Total registers                              ; 13    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 5     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 8     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -343,8 +392,7 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Blackjack|NS                     ;
-; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |Blackjack|dealer:DEALER|value[2] ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 18 LEs               ; 0 LEs                  ; No         ; |Blackjack|dealer:DEALER|value[1] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 
 
@@ -373,6 +421,521 @@ Encoding Type:  One-Hot
 ; WIN            ; 010001 ; Unsigned Binary                                 ;
 +----------------+--------+-------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Mod0 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Mod1 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Div0 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Mod2 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_soo ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Mod3 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                               ;
+; LPM_WIDTHD             ; 8              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_jno ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Div1 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                               ;
+; LPM_WIDTHD             ; 8              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_s0p ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: three_decimal_vals_w_neg:MONEY|lpm_divide:Mod4 ;
++------------------------+----------------+-------------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                  ;
++------------------------+----------------+-------------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                               ;
+; LPM_WIDTHD             ; 5              ; Untyped                                               ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                               ;
+; LPM_PIPELINE           ; 0              ; Untyped                                               ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                               ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                               ;
+; CBXI_PARAMETER         ; lpm_divide_soo ; Untyped                                               ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                               ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                               ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                            ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                          ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                          ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                        ;
++------------------------+----------------+-------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: two_decimal_vals:BETS|lpm_divide:Mod0 ;
++------------------------+----------------+----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                         ;
++------------------------+----------------+----------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                      ;
+; LPM_WIDTHD             ; 5              ; Untyped                                      ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                      ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                      ;
+; LPM_PIPELINE           ; 0              ; Untyped                                      ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                      ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                      ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                                      ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                      ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                      ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                 ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                               ;
++------------------------+----------------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: two_decimal_vals:BETS|lpm_divide:Div0 ;
++------------------------+----------------+----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                         ;
++------------------------+----------------+----------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                      ;
+; LPM_WIDTHD             ; 5              ; Untyped                                      ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                      ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                      ;
+; LPM_PIPELINE           ; 0              ; Untyped                                      ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                      ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                      ;
+; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                                      ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                      ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                      ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                 ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                               ;
++------------------------+----------------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: two_decimal_vals:BETS|lpm_divide:Mod2 ;
++------------------------+----------------+----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                         ;
++------------------------+----------------+----------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                      ;
+; LPM_WIDTHD             ; 5              ; Untyped                                      ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                      ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                      ;
+; LPM_PIPELINE           ; 0              ; Untyped                                      ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                      ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                      ;
+; CBXI_PARAMETER         ; lpm_divide_soo ; Untyped                                      ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                      ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                      ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                   ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                 ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                 ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                               ;
++------------------------+----------------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: two_decimal_vals:STATE|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                                       ;
+; LPM_WIDTHD             ; 5              ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: two_decimal_vals:STATE|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                       ;
+; LPM_WIDTHD             ; 5              ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_p0p ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: two_decimal_vals:STATE|lpm_divide:Mod2 ;
++------------------------+----------------+-----------------------------------------------+
+; Parameter Name         ; Value          ; Type                                          ;
++------------------------+----------------+-----------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                       ;
+; LPM_WIDTHD             ; 5              ; Untyped                                       ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                                       ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                                       ;
+; LPM_PIPELINE           ; 0              ; Untyped                                       ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                                       ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                       ;
+; CBXI_PARAMETER         ; lpm_divide_soo ; Untyped                                       ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                       ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                       ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                    ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                  ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                  ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                ;
++------------------------+----------------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: dealer:DEALER|lpm_divide:Mod3 ;
++------------------------+----------------+--------------------------------------+
+; Parameter Name         ; Value          ; Type                                 ;
++------------------------+----------------+--------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                       ;
++------------------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: dealer:DEALER|lpm_divide:Mod4 ;
++------------------------+----------------+--------------------------------------+
+; Parameter Name         ; Value          ; Type                                 ;
++------------------------+----------------+--------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                       ;
++------------------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: dealer:DEALER|lpm_divide:Mod2 ;
++------------------------+----------------+--------------------------------------+
+; Parameter Name         ; Value          ; Type                                 ;
++------------------------+----------------+--------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                       ;
++------------------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: dealer:DEALER|lpm_divide:Mod1 ;
++------------------------+----------------+--------------------------------------+
+; Parameter Name         ; Value          ; Type                                 ;
++------------------------+----------------+--------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                       ;
++------------------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: dealer:DEALER|lpm_divide:Mod0 ;
++------------------------+----------------+--------------------------------------+
+; Parameter Name         ; Value          ; Type                                 ;
++------------------------+----------------+--------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                       ;
++------------------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: player:PLAYER|lpm_divide:Mod1 ;
++------------------------+----------------+--------------------------------------+
+; Parameter Name         ; Value          ; Type                                 ;
++------------------------+----------------+--------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                       ;
++------------------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: player:PLAYER|lpm_divide:Mod3 ;
++------------------------+----------------+--------------------------------------+
+; Parameter Name         ; Value          ; Type                                 ;
++------------------------+----------------+--------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                       ;
++------------------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: player:PLAYER|lpm_divide:Mod4 ;
++------------------------+----------------+--------------------------------------+
+; Parameter Name         ; Value          ; Type                                 ;
++------------------------+----------------+--------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                       ;
++------------------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: player:PLAYER|lpm_divide:Mod0 ;
++------------------------+----------------+--------------------------------------+
+; Parameter Name         ; Value          ; Type                                 ;
++------------------------+----------------+--------------------------------------+
+; LPM_WIDTHN             ; 9              ; Untyped                              ;
+; LPM_WIDTHD             ; 5              ; Untyped                              ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                              ;
+; LPM_PIPELINE           ; 0              ; Untyped                              ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                              ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                              ;
+; CBXI_PARAMETER         ; lpm_divide_gno ; Untyped                              ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                              ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                              ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                           ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                         ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                         ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                       ;
++------------------------+----------------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------+
+; Port Connectivity Checks: "two_decimal_vals:STATE" ;
++-----------+-------+----------+---------------------+
+; Port      ; Type  ; Severity ; Details             ;
++-----------+-------+----------+---------------------+
+; val[7..6] ; Input ; Info     ; Stuck at GND        ;
++-----------+-------+----------+---------------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -435,13 +998,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 68                          ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; boundary_port         ; 80                          ;
+; cycloneiii_ff         ; 13                          ;
+;     CLR               ; 5                           ;
+;     ENA               ; 8                           ;
+; cycloneiii_lcell_comb ; 644                         ;
+;     arith             ; 218                         ;
+;         1 data inputs ; 17                          ;
+;         2 data inputs ; 49                          ;
+;         3 data inputs ; 152                         ;
+;     normal            ; 426                         ;
+;         0 data inputs ; 35                          ;
+;         1 data inputs ; 8                           ;
+;         2 data inputs ; 178                         ;
+;         3 data inputs ; 22                          ;
+;         4 data inputs ; 183                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 64.90                       ;
+; Average LUT depth     ; 49.01                       ;
 +-----------------------+-----------------------------+
 
 
@@ -450,7 +1024,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:06     ;
 +----------------+--------------+
 
 
@@ -460,7 +1034,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Tue Dec 06 16:25:28 2022
+    Info: Processing started: Tue Dec 06 19:57:44 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Blackjack -c Blackjack
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
@@ -483,34 +1057,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file player.
 Info (12127): Elaborating entity "Blackjack" for the top level hierarchy
 Warning (10858): Verilog HDL warning at Blackjack.v(30): object value used but never assigned File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 30
 Warning (10240): Verilog HDL Always Construct warning at Blackjack.v(90): inferring latch(es) for variable "NS", which holds its previous value in one or more paths through the always construct File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10264): Verilog HDL Case Statement information at Blackjack.v(176): all case item expressions in this case statement are onehot File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 176
 Warning (10240): Verilog HDL Always Construct warning at Blackjack.v(176): inferring latch(es) for variable "win", which holds its previous value in one or more paths through the always construct File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 176
 Warning (10240): Verilog HDL Always Construct warning at Blackjack.v(176): inferring latch(es) for variable "tie", which holds its previous value in one or more paths through the always construct File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 176
 Warning (10030): Net "value" at Blackjack.v(30) has no driver or initial value, using a default initial value '0' File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 30
-Warning (10034): Output port "seg7_neg_sign" at Blackjack.v(13) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
-Warning (10034): Output port "seg7_dig0" at Blackjack.v(14) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
-Warning (10034): Output port "seg7_dig1" at Blackjack.v(15) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 15
-Warning (10034): Output port "seg7_dig2" at Blackjack.v(16) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 16
-Warning (10034): Output port "seg7_dig3" at Blackjack.v(17) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 17
-Warning (10034): Output port "seg7_dig4" at Blackjack.v(19) has no driver File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 19
-Info (10041): Inferred latch for "NS.WIN" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.TIE" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.LOST" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.DEAL_LOW" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.DEAL_HIGH" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.DEAL_TIE" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.DEAL_BUST" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.DEAL_BJ" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.DEAL" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.BUST" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.BJ_5" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.C_5" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.C_4" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.C_3" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.C_2" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.BET" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.START" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
-Info (10041): Inferred latch for "NS.INITS" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+Info (10041): Inferred latch for "NS[0]" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+Info (10041): Inferred latch for "NS[1]" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+Info (10041): Inferred latch for "NS[2]" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+Info (10041): Inferred latch for "NS[3]" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+Info (10041): Inferred latch for "NS[4]" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+Info (10041): Inferred latch for "NS[5]" at Blackjack.v(90) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
 Info (12128): Elaborating entity "player" for hierarchy "player:PLAYER" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 44
 Warning (10230): Verilog HDL assignment warning at player.v(124): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 124
 Warning (10230): Verilog HDL assignment warning at player.v(126): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 126
@@ -537,57 +1092,188 @@ Warning (10230): Verilog HDL assignment warning at dealer.v(154): truncated valu
 Warning (10230): Verilog HDL assignment warning at dealer.v(161): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 161
 Warning (10230): Verilog HDL assignment warning at dealer.v(163): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 163
 Warning (10230): Verilog HDL assignment warning at dealer.v(166): truncated value with size 32 to match size of target (8) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 166
+Info (12128): Elaborating entity "three_decimal_vals_w_neg" for hierarchy "three_decimal_vals_w_neg:MONEY" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 192
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(38): truncated value with size 32 to match size of target (4) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 38
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(39): truncated value with size 32 to match size of target (4) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 39
+Warning (10230): Verilog HDL assignment warning at three_decimal_vals_w_neg.v(40): truncated value with size 32 to match size of target (4) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 40
+Info (12128): Elaborating entity "seven_segment_negative" for hierarchy "three_decimal_vals_w_neg:MONEY|seven_segment_negative:NEG" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 45
+Info (12128): Elaborating entity "seven_segment" for hierarchy "three_decimal_vals_w_neg:MONEY|seven_segment:ZERO" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 46
+Info (12128): Elaborating entity "two_decimal_vals" for hierarchy "two_decimal_vals:BETS" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 193
+Warning (10230): Verilog HDL assignment warning at two_decimal_vals.v(22): truncated value with size 32 to match size of target (4) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 22
+Warning (10230): Verilog HDL assignment warning at two_decimal_vals.v(23): truncated value with size 32 to match size of target (4) File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 23
 Warning (12011): Net is missing source, defaulting to GND
     Warning (12110): Net "deal" is missing source, defaulting to GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 23
+Info (278001): Inferred 22 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:MONEY|Mod0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 34
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:MONEY|Mod1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:MONEY|Div0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:MONEY|Mod2" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:MONEY|Mod3" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:MONEY|Div1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "three_decimal_vals_w_neg:MONEY|Mod4" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "two_decimal_vals:BETS|Mod0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 19
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "two_decimal_vals:BETS|Div0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "two_decimal_vals:BETS|Mod2" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "two_decimal_vals:STATE|Mod0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 19
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "two_decimal_vals:STATE|Div0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "two_decimal_vals:STATE|Mod2" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 20
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "dealer:DEALER|Mod3" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 114
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "dealer:DEALER|Mod4" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 115
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "dealer:DEALER|Mod2" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 113
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "dealer:DEALER|Mod1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 112
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "dealer:DEALER|Mod0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 111
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "player:PLAYER|Mod1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 108
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "player:PLAYER|Mod3" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 110
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "player:PLAYER|Mod4" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 111
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "player:PLAYER|Mod0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/player.v Line: 107
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:MONEY|lpm_divide:Mod0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 34
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:MONEY|lpm_divide:Mod0" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 34
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_gno.tdf
+    Info (12023): Found entity 1: lpm_divide_gno File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_gno.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_8ag.tdf
+    Info (12023): Found entity 1: abs_divider_8ag File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_8ag.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_e4f.tdf
+    Info (12023): Found entity 1: alt_u_div_e4f File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_e4f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_7pc.tdf
+    Info (12023): Found entity 1: add_sub_7pc File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/add_sub_7pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_8pc.tdf
+    Info (12023): Found entity 1: add_sub_8pc File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/add_sub_8pc.tdf Line: 23
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_2v9.tdf
+    Info (12023): Found entity 1: lpm_abs_2v9 File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_2v9.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_6v9.tdf
+    Info (12023): Found entity 1: lpm_abs_6v9 File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_6v9.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:MONEY|lpm_divide:Mod1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:MONEY|lpm_divide:Mod1" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:MONEY|lpm_divide:Div0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:MONEY|lpm_divide:Div0" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_p0p.tdf
+    Info (12023): Found entity 1: lpm_divide_p0p File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_p0p.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_kbg.tdf
+    Info (12023): Found entity 1: abs_divider_kbg File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_kbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_67f.tdf
+    Info (12023): Found entity 1: alt_u_div_67f File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_67f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_i0a.tdf
+    Info (12023): Found entity 1: lpm_abs_i0a File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_i0a.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:MONEY|lpm_divide:Mod2" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:MONEY|lpm_divide:Mod2" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 35
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_soo.tdf
+    Info (12023): Found entity 1: lpm_divide_soo File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_soo.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:MONEY|lpm_divide:Mod3" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:MONEY|lpm_divide:Mod3" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_jno.tdf
+    Info (12023): Found entity 1: lpm_divide_jno File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_jno.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_bag.tdf
+    Info (12023): Found entity 1: abs_divider_bag File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_bag.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_k4f.tdf
+    Info (12023): Found entity 1: alt_u_div_k4f File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_k4f.tdf Line: 27
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_5v9.tdf
+    Info (12023): Found entity 1: lpm_abs_5v9 File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_abs_5v9.tdf Line: 25
+Info (12130): Elaborated megafunction instantiation "three_decimal_vals_w_neg:MONEY|lpm_divide:Div1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+Info (12133): Instantiated megafunction "three_decimal_vals_w_neg:MONEY|lpm_divide:Div1" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/three_decimal_vals_w_neg.v Line: 36
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_s0p.tdf
+    Info (12023): Found entity 1: lpm_divide_s0p File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/lpm_divide_s0p.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_nbg.tdf
+    Info (12023): Found entity 1: abs_divider_nbg File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/abs_divider_nbg.tdf Line: 29
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_c7f.tdf
+    Info (12023): Found entity 1: alt_u_div_c7f File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/db/alt_u_div_c7f.tdf Line: 27
+Info (12130): Elaborated megafunction instantiation "two_decimal_vals:BETS|lpm_divide:Mod0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 19
+Info (12133): Instantiated megafunction "two_decimal_vals:BETS|lpm_divide:Mod0" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 19
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12130): Elaborated megafunction instantiation "two_decimal_vals:STATE|lpm_divide:Mod0" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 19
+Info (12133): Instantiated megafunction "two_decimal_vals:STATE|lpm_divide:Mod0" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/two_decimal_vals.v Line: 19
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12130): Elaborated megafunction instantiation "dealer:DEALER|lpm_divide:Mod3" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 114
+Info (12133): Instantiated megafunction "dealer:DEALER|lpm_divide:Mod3" with the following parameter: File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/dealer.v Line: 114
+    Info (12134): Parameter "LPM_WIDTHN" = "9"
+    Info (12134): Parameter "LPM_WIDTHD" = "5"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (13014): Ignored 34 buffer(s)
+    Info (13016): Ignored 34 CARRY_SUM buffer(s)
+Warning (13012): Latch NS[0] has unsafe behavior File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[0] File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 156
+Warning (13012): Latch NS[1] has unsafe behavior File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[2] File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 156
+Warning (13012): Latch NS[2] has unsafe behavior File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[0] File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 156
+Warning (13012): Latch NS[3] has unsafe behavior File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[2] File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 156
+Warning (13012): Latch NS[4] has unsafe behavior File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 90
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal S[0] File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 156
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "seg7_neg_sign[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
-    Warning (13410): Pin "seg7_neg_sign[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
-    Warning (13410): Pin "seg7_neg_sign[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
-    Warning (13410): Pin "seg7_neg_sign[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
-    Warning (13410): Pin "seg7_neg_sign[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
-    Warning (13410): Pin "seg7_neg_sign[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
-    Warning (13410): Pin "seg7_neg_sign[6]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
-    Warning (13410): Pin "seg7_dig0[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
-    Warning (13410): Pin "seg7_dig0[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
-    Warning (13410): Pin "seg7_dig0[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
-    Warning (13410): Pin "seg7_dig0[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
-    Warning (13410): Pin "seg7_dig0[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
-    Warning (13410): Pin "seg7_dig0[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
-    Warning (13410): Pin "seg7_dig0[6]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
-    Warning (13410): Pin "seg7_dig1[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 15
-    Warning (13410): Pin "seg7_dig1[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 15
-    Warning (13410): Pin "seg7_dig1[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 15
-    Warning (13410): Pin "seg7_dig1[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 15
-    Warning (13410): Pin "seg7_dig1[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 15
-    Warning (13410): Pin "seg7_dig1[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 15
-    Warning (13410): Pin "seg7_dig1[6]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 15
-    Warning (13410): Pin "seg7_dig2[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 16
-    Warning (13410): Pin "seg7_dig2[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 16
-    Warning (13410): Pin "seg7_dig2[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 16
-    Warning (13410): Pin "seg7_dig2[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 16
-    Warning (13410): Pin "seg7_dig2[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 16
-    Warning (13410): Pin "seg7_dig2[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 16
-    Warning (13410): Pin "seg7_dig2[6]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 16
-    Warning (13410): Pin "seg7_dig3[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 17
-    Warning (13410): Pin "seg7_dig3[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 17
-    Warning (13410): Pin "seg7_dig3[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 17
-    Warning (13410): Pin "seg7_dig3[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 17
-    Warning (13410): Pin "seg7_dig3[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 17
-    Warning (13410): Pin "seg7_dig3[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 17
-    Warning (13410): Pin "seg7_dig3[6]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 17
-    Warning (13410): Pin "seg7_dig4[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 19
-    Warning (13410): Pin "seg7_dig4[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 19
-    Warning (13410): Pin "seg7_dig4[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 19
-    Warning (13410): Pin "seg7_dig4[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 19
-    Warning (13410): Pin "seg7_dig4[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 19
-    Warning (13410): Pin "seg7_dig4[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 19
-    Warning (13410): Pin "seg7_dig4[6]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 19
-Info (17049): 24 registers lost all their fanouts during netlist optimizations.
+    Warning (13410): Pin "seg7_dig1[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
+    Warning (13410): Pin "seg7_dig1[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
+    Warning (13410): Pin "seg7_dig1[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
+    Warning (13410): Pin "seg7_dig1[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
+    Warning (13410): Pin "seg7_dig1[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
+    Warning (13410): Pin "seg7_dig1[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
+    Warning (13410): Pin "seg7_dig1[6]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
+    Warning (13410): Pin "seg7_dig2[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 12
+    Warning (13410): Pin "seg7_dig2[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 12
+    Warning (13410): Pin "seg7_dig2[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 12
+    Warning (13410): Pin "seg7_dig2[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 12
+    Warning (13410): Pin "seg7_dig2[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 12
+    Warning (13410): Pin "seg7_dig2[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 12
+    Warning (13410): Pin "seg7_dig2[6]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 12
+    Warning (13410): Pin "seg7_dig3[0]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
+    Warning (13410): Pin "seg7_dig3[1]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
+    Warning (13410): Pin "seg7_dig3[2]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
+    Warning (13410): Pin "seg7_dig3[3]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
+    Warning (13410): Pin "seg7_dig3[4]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
+    Warning (13410): Pin "seg7_dig3[5]" is stuck at GND File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
+    Warning (13410): Pin "seg7_dig3[6]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 13
+    Warning (13410): Pin "seg7_dig4[0]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
+    Warning (13410): Pin "seg7_dig4[1]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
+    Warning (13410): Pin "seg7_dig4[2]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
+    Warning (13410): Pin "seg7_dig4[3]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
+    Warning (13410): Pin "seg7_dig4[4]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
+    Warning (13410): Pin "seg7_dig4[5]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
+    Warning (13410): Pin "seg7_dig4[6]" is stuck at VCC File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 14
+Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/output_files/Blackjack.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 26 input pin(s) that do not drive logic
+Warning (21074): Design contains 17 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "random_seed[0]" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 5
     Warning (15610): No output dependent on input pin "random_seed[1]" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 5
     Warning (15610): No output dependent on input pin "random_seed[2]" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 5
@@ -605,23 +1291,15 @@ Warning (21074): Design contains 26 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "random_seed[14]" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 5
     Warning (15610): No output dependent on input pin "random_seed[15]" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 5
     Warning (15610): No output dependent on input pin "new_random_seed" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 6
-    Warning (15610): No output dependent on input pin "increment_1" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 9
-    Warning (15610): No output dependent on input pin "increment_5" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 10
-    Warning (15610): No output dependent on input pin "increment_10" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 11
-    Warning (15610): No output dependent on input pin "increment_25" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 12
-    Warning (15610): No output dependent on input pin "clk" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 3
-    Warning (15610): No output dependent on input pin "rst" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 2
-    Warning (15610): No output dependent on input pin "start" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 4
-    Warning (15610): No output dependent on input pin "hit" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 7
-    Warning (15610): No output dependent on input pin "stand" File: C:/Users/alexh/OneDrive/Desktop/ECE 287 Digital Design/FinalProject/ECE287_Blackjack/Blackjack.v Line: 8
-Info (21057): Implemented 68 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 26 input pins
-    Info (21059): Implemented 42 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 108 warnings
-    Info: Peak virtual memory: 4738 megabytes
-    Info: Processing ended: Tue Dec 06 16:25:35 2022
-    Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:18
+Info (21057): Implemented 723 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 24 input pins
+    Info (21059): Implemented 56 output pins
+    Info (21061): Implemented 643 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 94 warnings
+    Info: Peak virtual memory: 4817 megabytes
+    Info: Processing ended: Tue Dec 06 19:58:04 2022
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:35
 
 
 +------------------------------------------+

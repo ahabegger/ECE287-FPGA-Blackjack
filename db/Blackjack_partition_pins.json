@@ -2,7 +2,148 @@
 	"partitions" : [
 		{
 			"name" : "Top",
-			"pins" : []
+			"pins" : [
+				{
+					"name" : "seg7_dig5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig5[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig5[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig5[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig5[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig5[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig5[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig6[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig6[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig6[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig6[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig6[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig6[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig6[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig7[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig7[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig7[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig7[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig7[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig7[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig7[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig8[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig8[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig8[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig8[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig8[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig8[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig8[6]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "key1",
+					"strict" : false
+				},
+				{
+					"name" : "key2",
+					"strict" : false
+				},
+				{
+					"name" : "key3",
+					"strict" : false
+				},
+				{
+					"name" : "key4",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "start",
+					"strict" : false
+				}
+			]
 		}
 	]
 }

@@ -2,20 +2,20 @@ module Blackjack(
 	input rst,
 	input clk,
 	input start,
-	input [15:0]random_seed,
-	input new_random_seed,
-	input hit,
-	input stand,
-	input increment_1,
-	input increment_5,
-	input increment_10,
-	input increment_25,
-	output [6:0]seg7_neg_sign,
-	output [6:0]seg7_dig0,
-	output [6:0]seg7_dig1,
-	output [6:0]seg7_dig2,
-	output [6:0]seg7_dig3,
-	output [6:0]seg7_dig4
+	input [15:0]random_seed, // SW[0] - SW[15]
+	input new_random_seed, 
+	input key1, // KEY[0] -> PIN_M23
+	input key2, // KEY[1] -> PIN_M21
+	input key3, // KEY[2] -> PIN_N21
+	input key4, // KEY[3] -> PIN_R24
+	output [6:0]seg7_dig1, // HEX[0]
+	output [6:0]seg7_dig2, // HEX[1]
+	output [6:0]seg7_dig3, // HEX[2]
+	output [6:0]seg7_dig4, // HEX[3]
+	output [6:0]seg7_dig5, // HEX[4]
+	output [6:0]seg7_dig6, // HEX[5]
+	output [6:0]seg7_dig7, // HEX[6]
+	output [6:0]seg7_dig8  // HEX[7]
 );
 
 
@@ -55,7 +55,7 @@ wire [7:0]dcard4;
 wire [7:0]dcard5;
 
 // Deal Dealer Logic
-dealer DEALER(clk, rst, deal, {random_seed[2:0], random_seed[2:0], random_seed[15:6]}, new_random_seed, dcard1, dcard2, dcard3, dcard4, dcard5, dvalue, dcardsnum);
+dealer DEALER(clk, rst, deal, {random_seed[2:0], random_seed[15:6], random_seed[2:0]}, new_random_seed, dcard1, dcard2, dcard3, dcard4, dcard5, dvalue, dcardsnum);
 
 // Defining Output Variables
 reg  win;
@@ -93,21 +93,21 @@ case(S)
 					NS = BET;
 			BET: if (start)
 					NS = C_2;
-	      C_2: if (hit)
+	      C_2: if (key3) // key3 == hit
 				   NS = C_3;
-				  else if (stand) 
+				  else if (key2) // key2 == stand
 				   NS = DEAL;
 	      C_3: if (value > 8'd21)
 					NS = BUST;
-				  else if (hit == 1'b1)
+				  else if (key3 == 1'b1)
 					NS = C_4;
-				  else if (stand == 1'b1)
+				  else if (key2 == 1'b1)
 					NS = DEAL;
 	      C_4: if (value > 8'd21)
 					NS = BUST;
-				  else if (hit == 1'b1)
+				  else if (key3 == 1'b1)
 					NS = C_5;
-				  else if (stand == 1'b1)
+				  else if (key2 == 1'b1)
 					NS = DEAL;
 	      C_5: if (value > 8'd21)
 					NS = BUST;
@@ -152,21 +152,21 @@ begin
 		S <= INITS;
 	else
 	begin
-	
 		// Bet Listener
 		if (S == BET)
 		begin
-			if (increment_1)
+			if (key1)
+				bet = bet - 8'd5;
+			if (key2)
+				bet = bet - 8'd1;
+			if (key3)
 				bet = bet + 8'd1;
-			if (increment_5)
+			if (key4)
 				bet = bet + 8'd5;
-			if (increment_10)
-				bet = bet + 8'd10;
-			if (increment_25)
-				bet = bet + 8'd25;
 		end 
 		
 		S <= NS;
+		
 	end
 end
 
@@ -187,5 +187,10 @@ case (S)
 				end
 endcase
 
+
+// Display Modules
+three_decimal_vals_w_neg MONEY(total_money, seg7_dig4, seg7_dig1, seg7_dig2, seg7_dig3);
+two_decimal_vals BETS(bet, seg7_dig5, seg7_dig6);
+two_decimal_vals STATE({2'b00, S}, seg7_dig7, seg7_dig8);
 
 endmodule
