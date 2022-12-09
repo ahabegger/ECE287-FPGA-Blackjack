@@ -27,4 +27,8 @@ in the case of a loss the total bet will be deducted from the standing balance. 
 (betting phase) will be entered, and the aforementioned process will continue to run until a either a balance of 0
 or 1000 is reached, in both cases the game will terminate. 
 
+#Design
+Listed below are the modules used to make this design possible, with a short description.
+
+
 
