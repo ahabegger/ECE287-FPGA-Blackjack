@@ -43,4 +43,11 @@ Dealer.v is the module responsible for storage of the dealer card values and det
 ## Player.v
 Like Dealer.v, Player.v is responsivble for storing the values of the drawn cards and then determining if they meet the requirements for blackjack each time around.
 
+# Result
+Through the use of a finite state machine, we were able to create a fully functioning version of blackjack that was accesable through the use of the Altera DE2-115 board. This program incorporated multiple forms of state handling as well as a linear feedback shift register and multiple methods to form a complex function that achieved the end goal of a functioning game. 
+# Product Images 
+
+<img width="500" alt="Screen Shot 2022-12-09 at 6 14 41 PM" src="https://user-images.githubusercontent.com/119711095/206810444-4e97a0bd-3552-4c84-9ce1-872ccdac88b9.png">
+
+
 
