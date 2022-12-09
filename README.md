@@ -31,8 +31,13 @@ or 1000 is reached, in both cases the game will terminate.
 Listed below are the modules used to make this design possible, with a short description.
 ## Blackjack.v
 This module acts as the top level module and facilitates the function of the program. This module is able to do so through controlling the states and determining the result of each through the use of if statements and other conditionals. Below is an example of how Blackjack.v functions.
+<img width="534" alt="Screen Shot 2022-12-09 at 5 59 24 PM" src="https://user-images.githubusercontent.com/119711095/206809127-2f1e8114-3322-4b56-b5a9-282893b37e64.png">
+
 ## Random.v
-Random.v is the module that is used to determine the value of the cards drawn by both the player and dealer. This module is able to generate the random values through the use of a LFSR that oscilates through the values of 0-51 with every tick, and pulls the value(s) held at the instance where it is called. Random.v takes the value from the LFSR and uses a formula to determine the corresponding card value. Below are both the LFSR and formulas used to determine the aforementioned values. 
+Random.v is the module that is used to determine the value of the cards drawn by both the player and dealer. This module is able to generate the random values through the use of a LFSR that oscilates through the values of 0-51 with every tick, and pulls the value(s) held at the instance where it is called. Random.v takes the value from the LFSR, stores it, and the determines the value. Below are both the LFSR and formulas used to determine the aforementioned values. 
+<img width="693" alt="Screen Shot 2022-12-09 at 6 01 01 PM" src="https://user-images.githubusercontent.com/119711095/206809220-b3a65fd3-22d8-480b-add8-d3cd30d4c474.png">
+<img width="542" alt="Screen Shot 2022-12-09 at 6 02 11 PM" src="https://user-images.githubusercontent.com/119711095/206809431-a602f68a-65c0-44fc-907e-612835bfe1df.png">
+
 ## Dealer.v
 Dealer.v is the module responsible for storage of the dealer card values and determining if the requirements for blackjack have been met.
 ## Player.v
