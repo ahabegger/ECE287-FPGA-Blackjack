@@ -4,6 +4,118 @@
 			"name" : "Top",
 			"pins" : [
 				{
+					"name" : "seg7_dig1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig3[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig3[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig3[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig3[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig3[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig3[6]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig4[1]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig4[2]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig4[3]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig4[4]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig4[5]",
+					"strict" : false
+				},
+				{
+					"name" : "seg7_dig4[6]",
+					"strict" : false
+				},
+				{
 					"name" : "seg7_dig5[0]",
 					"strict" : false
 				},
@@ -116,15 +228,39 @@
 					"strict" : false
 				},
 				{
-					"name" : "clk",
+					"name" : "win",
 					"strict" : false
 				},
 				{
-					"name" : "key1",
+					"name" : "tie",
 					"strict" : false
 				},
 				{
-					"name" : "key2",
+					"name" : "lose",
+					"strict" : false
+				},
+				{
+					"name" : "aces[4]",
+					"strict" : false
+				},
+				{
+					"name" : "aces[3]",
+					"strict" : false
+				},
+				{
+					"name" : "aces[2]",
+					"strict" : false
+				},
+				{
+					"name" : "aces[1]",
+					"strict" : false
+				},
+				{
+					"name" : "aces[0]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[0]",
 					"strict" : false
 				},
 				{
@@ -132,7 +268,19 @@
 					"strict" : false
 				},
 				{
-					"name" : "key4",
+					"name" : "random_seed[1]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[3]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[2]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
 					"strict" : false
 				},
 				{
@@ -140,7 +288,67 @@
 					"strict" : false
 				},
 				{
-					"name" : "start",
+					"name" : "key4",
+					"strict" : false
+				},
+				{
+					"name" : "key2",
+					"strict" : false
+				},
+				{
+					"name" : "key1",
+					"strict" : false
+				},
+				{
+					"name" : "new_random_seed",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[8]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[6]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[7]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[13]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[11]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[10]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[12]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[9]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[15]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[14]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[4]",
+					"strict" : false
+				},
+				{
+					"name" : "random_seed[5]",
 					"strict" : false
 				}
 			]

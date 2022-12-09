@@ -9,7 +9,8 @@ output [7:0]card2,
 output [7:0]card3, 
 output [7:0]card4, 
 output [7:0]card5, 
-output reg [7:0]value, 
+output reg [31:0]val1,
+output reg [31:0]value, 
 output reg [7:0]cardsnum
 );
 
@@ -31,12 +32,12 @@ integer cardval5_holder;
 reg [4:0]aces;
 
 // Define Values
-reg [7:0]val2;
-reg [7:0]val3; 
-reg [7:0]val4; 
-reg [7:0]val5;
+reg [31:0]val2;
+reg [31:0]val3; 
+reg [31:0]val4; 
+reg [31:0]val5;
 
-random DDEAL(deal, random_seed, new_random_seed, card1, card2, card3, card4, card5);
+random DDEAL(clk, rst, deal, random_seed, new_random_seed, card1, card2, card3, card4, card5);
 
 always@(*)
 begin 
@@ -116,22 +117,39 @@ begin
 	
 	
 	// Defining Aces
-	aces = {(cardval1 == 1), 
-			  (cardval2 == 1),
-			  (cardval3 == 1),
-			  (cardval4 == 1), 
-			  (cardval5 == 1)};
+	aces = {(cardval1 == 32'd1), 
+			  (cardval2 == 32'd1),
+			  (cardval3 == 32'd1),
+			  (cardval4 == 32'd1), 
+			  (cardval5 == 32'd1)};
 
+	// Face Card Logic
+	if (cardval1 > 10)
+		cardval1 = 10;
+	if (cardval2 > 10)
+		cardval2 = 10;
+	if (cardval3 > 10)
+		cardval3 = 10;
+	if (cardval4 > 10)
+		cardval4 = 10;
+	if (cardval5 > 10)
+		cardval5 = 10;
+			  	  
+	// Val1
+	if (aces[0])
+		val1 = cardval1 + 10;
+	else 
+		val1 = cardval1;
 			  
 	// Val2
-	if (aces[0] || aces[1])
+	if (aces[0] | aces[1])
 		val2 = cardval1 + cardval2 + 10;
 	else 
 		val2 = cardval1 + cardval2;
 		
 		
 	// Val3
-	if (aces[0] || aces[1] || aces[2])
+	if (aces[0] | aces[1] | aces[2])
 	begin 
 		if ((cardval1 + cardval2 + cardval3 + 10) > 21)
 			val3 = cardval1 + cardval2 + cardval3;
@@ -143,7 +161,7 @@ begin
 		
 		
 	// Val4
-	if (aces[0] || aces[1] || aces[2] || aces[3])
+	if (aces[0] | aces[1] | aces[2] | aces[3])
 	begin 
 		if ((cardval1 + cardval2 + cardval3 + cardval4 + 10) > 21)
 			val4 = cardval1 + cardval2 + cardval3 + cardval4;
@@ -155,7 +173,7 @@ begin
 	
 	
 	// Val5
-	if (aces[0] || aces[1] || aces[2] || aces[3] || aces[4])
+	if (aces[0] | aces[1] | aces[2] | aces[3] | aces[4])
 	begin 
 		if ((cardval1 + cardval2 + cardval3 + cardval4 + cardval5 + 10) > 21)
 			val5 = cardval1 + cardval2 + cardval3 + cardval4 + cardval5;
@@ -189,7 +207,6 @@ begin
 		value = val5;
 		cardsnum = 8'd5;
 	end
-	
 	
 end
 

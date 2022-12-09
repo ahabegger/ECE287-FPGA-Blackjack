@@ -9,10 +9,11 @@ output [7:0]card2,
 output [7:0]card3, 
 output [7:0]card4, 
 output [7:0]card5, 
-output reg [7:0]val2, 
-output reg [7:0]val3, 
-output reg [7:0]val4, 
-output reg [7:0]val5
+output reg [31:0]val2, 
+output reg [31:0]val3, 
+output reg [31:0]val4, 
+output reg [31:0]val5,
+output reg [4:0]aces
 );
 
 // Card Value
@@ -29,10 +30,7 @@ integer cardval3_holder;
 integer cardval4_holder;
 integer cardval5_holder;
 
-// Aces holder
-reg [4:0]aces;
-
-random PDEAL(deal, random_seed, new_random_seed, card1, card2, card3, card4, card5);
+random PDEAL(clk, rst, deal, random_seed, new_random_seed, card1, card2, card3, card4, card5);
 
 always@(*)
 begin 
@@ -111,12 +109,24 @@ begin
 	cardval5 = (cardval5_holder % 13) + 1;
 	
 	
+	// Face Card Logic
+	if (cardval1 > 10)
+		cardval1 = 10;
+	if (cardval2 > 10)
+		cardval2 = 10;
+	if (cardval3 > 10)
+		cardval3 = 10;
+	if (cardval4 > 10)
+		cardval4 = 10;
+	if (cardval5 > 10)
+		cardval5 = 10;
+	
 	// Defining Aces
-	aces = {(cardval1 == 1), 
-			  (cardval2 == 1),
-			  (cardval3 == 1),
-			  (cardval4 == 1), 
-			  (cardval5 == 1)};
+	aces = {(cardval1 == 32'd1), 
+			  (cardval2 == 32'd1),
+			  (cardval3 == 32'd1),
+			  (cardval4 == 32'd1), 
+			  (cardval5 == 32'd1)};
 	
 	
 	// Val2
