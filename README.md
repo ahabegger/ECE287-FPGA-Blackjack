@@ -30,7 +30,7 @@ or 1000 is reached, in both cases the game will terminate.
 # Design
 Listed below are the modules used to make this design possible, with a short description.
 ## Blackjack.v
-This module acts as the top level module and facilitates the function of the program. This module is able to do so through controlling the states and determining the result of each through the use of if statements and other conditionals. Below is an example of how Blackjack.v functions.
+This module acts as the top level module and facilitates the function of the program. This module is able to do so through controlling the states and determining the result of each through the use of if statements and other conditionals. As this module controls most of what occurs, it is also responsible for the process of modifying credit balance and sending the outputs of card and credit values to the seven segment display on FPGA through calling the seven_segment.v module. Below is an example of how Blackjack.v functions.
 <img width="534" alt="Screen Shot 2022-12-09 at 5 59 24 PM" src="https://user-images.githubusercontent.com/119711095/206809127-2f1e8114-3322-4b56-b5a9-282893b37e64.png">
 
 ## Random.v
