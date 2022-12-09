@@ -6,7 +6,7 @@ to the Altera DE2-115 FPGA board.
 Our project is an iteration of blackjack on the DE2-115 board in a way similar to
 that of the Atari 2600 blackjack game. This project was able to be designed through 
 the use of verilog code to create a FSM that outputs to an FPGA (Altera DE2-115). The game consists of a single play option: player vs computer,
-where the computer plays as the dealer. Through the use of a Linear Feedback Shift Register (LFSM), 
+where the computer plays as the dealer. Through the use of a Linear Feedback Shift Register (LFSR), 
 the player and dealer are assigned cards at random, ranging from 2-10, Jack, Queen, King, and Ace. All face 
 cards hold their typical values and the value of the Ace will be determined based on projected outcome, meaning
 the value will be assigned 1 if the projected result is a bust, and 11 otherwise. 
@@ -29,10 +29,13 @@ or 1000 is reached, in both cases the game will terminate.
 
 # Design
 Listed below are the modules used to make this design possible, with a short description.
-*Blackjack.v
-sdawdas
-*Random.v
-fsdawsd
-
+## Blackjack.v
+This module acts as the top level module and facilitates the function of the program. This module is able to do so through controlling the states and determining the result of each through the use of if statements and other conditionals. Below is an example of how Blackjack.v functions.
+## Random.v
+Random.v is the module that is used to determine the value of the cards drawn by both the player and dealer. This module is able to generate the random values through the use of a LFSR that oscilates through the values of 0-51 with every tick, and pulls the value(s) held at the instance where it is called. Random.v takes the value from the LFSR and uses a formula to determine the corresponding card value. Below are both the LFSR and formulas used to determine the aforementioned values. 
+## Dealer.v
+Dealer.v is the module responsible for storage of the dealer card values and determining if the requirements for blackjack have been met.
+## Player.v
+Like Dealer.v, Player.v is responsivble for storing the values of the drawn cards and then determining if they meet the requirements for blackjack each time around.
 
 
