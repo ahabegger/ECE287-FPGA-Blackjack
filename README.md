@@ -2,6 +2,9 @@
 This project implements verilog code in order to output a playable single-person game of blackjack
 to the Altera DE2-115 FPGA board.
 
+# Background
+Blackjack is a very popular card game that can be played with multiple people and one dealer. The game starts out with every player, including the dealer, being delt two cards. The players are delt both of their cards face up, while the dealer lays both face down and flips one over. From there, players take their total value and make a decision to either hit (obtain another card), and can continue to hit until they reach a value they like where they can stand, or reach a value over 21 (bust), or stand at their initial value. Once the player stands, the turn switches to the dealer. During the next stage, the dealer will flip the second card over and if the value of the two cards combined is 17 or over the dealer will stand and values of dealer and player will be compared. If the dealer's card value is less than the player, the player wins and is rewarded a value of 2:3 based on the original bet. In the case of the dealer having a higher combined value, the player simply loses all of their placed bet
+
 # Project Description
 Our project is an iteration of blackjack on the DE2-115 board in a way similar to
 that of the Atari 2600 blackjack game. This project was able to be designed through 
