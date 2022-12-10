@@ -16,7 +16,7 @@ Players are assigned 200 credits at the start of the game, and are able to place
 each turn. Upon initialization of the game, a first state will be entered. Following the first state, the player is then
 able to move into the second state (betting phase) where the player is able to bet a desired amount of credits.
 This state cannot be left until a bet of 1 or larger is placed. Once a bet is placed, the player then moves into 
-the next state through the use of ??? BUTTON 4???. In the third state, the player is delt 2 cards and the value of 
+the next state through the use of Button 3. In the third state, the player is delt 2 cards and the value of 
 that is shown on the board's seven segment display. While in this state the player is able to see their values
 as well as the value of the single card displayed by the dealer, where they are then able to either hit or stand.
 The player will be able to hit all the way up until they bust, at which point the number of credits placed as the
