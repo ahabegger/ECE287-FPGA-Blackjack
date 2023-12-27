@@ -34,7 +34,7 @@ Listed below are the modules used to make this design possible, with a short des
 
 ## Statechart 
 
-
+<img width="500" alt="" src="https://github.com/ahabegger/ECE287-FPGA-Blackjack/blob/main/State_Diagram.jpg?raw=true">
 
 ## Blackjack.v
 This module acts as the top level module and facilitates the function of the program. This module is able to do so through controlling the states and determining the result of each through the use of if statements and other conditionals. As this module controls most of what occurs, it is also responsible for the process of modifying credit balance and sending the outputs of card and credit values to the seven segment display on FPGA through calling the seven_segment.v module. Below is an example of how Blackjack.v functions.
